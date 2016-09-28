@@ -1,0 +1,1004 @@
+add key Bulbasaur: poke Planta/Veneno
+add key Ivysaur: poke Planta/Veneno
+add key Venusaur: poke Planta/Veneno
+add key Charmander: poke Fogo
+add key Charmeleon: poke Fogo
+add key Charizard: poke Fogo/Voador
+add key Squirtle: poke Agua
+add key Wartortle: poke Agua
+add key Blastoise: poke Agua
+add key Caterpie: poke Inseto
+add key Metapod: poke Inseto
+add key Butterfree: poke Inseto/Voador
+add key Weedle: poke Inseto/Veneno
+add key Kakuna: poke Inseto/Veneno
+add key Beedrill: poke Inseto/Veneno
+add key Pidgey: poke Normal/Voador
+add key Pidgeotto: poke Normal/Voador
+add key Pidgeot: poke Normal/Voador
+add key Rattata: poke Normal
+add key Raticate: poke Normal
+add key Spearow: poke Normal/Voador
+add key Fearow: poke Normal/Voador
+add key Ekans: poke Veneno
+add key Arbok: poke Veneno
+add key Pikachu: poke Eletrico
+add key Raichu: poke Eletrico
+add key Sandshrew: poke Terra
+add key Sandslash: poke Terra
+add key Nidoran: poke Tipo:
+add key Nidorina: poke Veneno
+add key Nidoqueen: poke Veneno/Terra
+add key Nidoran: poke Tipo:
+add key Nidorino: poke Veneno
+add key Nidoking: poke Veneno/Terra
+add key Clefairy: poke Normal
+add key Clefable: poke Normal
+add key Vulpix: poke Fogo
+add key Ninetales: poke Fogo
+add key Jigglypuff: poke Normal
+add key Wigglytuff: poke Normal
+add key Zubat: poke Veneno/Voador
+add key Golbat: poke Veneno/Voador
+add key Oddish: poke Planta/Veneno
+add key Gloom: poke Planta/Veneno
+add key Vileplume: poke Planta/Veneno
+add key Paras: poke Inseto/Planta
+add key Parasect: poke Inseto/Planta
+add key Venonat: poke Inseto/Veneno
+add key Venomoth: poke Inseto/Veneno
+add key Diglett: poke Terra
+add key Dugtrio: poke Terra
+add key Meowth: poke Normal
+add key Persian: poke Normal
+add key Psyduck: poke Agua
+add key Golduck: poke Agua
+add key Mankey: poke Lutador
+add key Primeape: poke Lutador
+add key Growlithe: poke Fogo
+add key Arcanine: poke Fogo
+add key Poliwag: poke Agua
+add key Poliwhirl: poke Agua
+add key Poliwrath: poke Agua/Lutador
+add key Abra: poke Psiquico
+add key Kadabra: poke Psiquico
+add key Alakazam: poke Psiquico
+add key Machop: poke Lutador
+add key Machoke: poke Lutador
+add key Machamp: poke Lutador
+add key Bellsprout: poke Planta/Veneno
+add key Weepinbell: poke Planta/Veneno
+add key Victreebell: poke Planta/Veneno
+add key Tentacool: poke Agua/Veneno
+add key Tentacruel: poke Agua/Veneno
+add key Geodude: poke Pedra/Terra
+add key Graveler: poke Pedra/Terra
+add key Golem: poke Pedra/Terra
+add key Ponyta: poke Fogo
+add key Rapidash: poke Fogo
+add key Slowpoke: poke Agua/Psiquico
+add key Slowbro: poke Agua/Psiquico
+add key Magnemite: poke Eletrico/Metalico
+add key Magneton: poke Eletrico/Metalico
+add key Farfetch'd: poke Normal/Voador
+add key Doduo: poke Normal/Voador
+add key Dodrio: poke Normal/Voador
+add key Seel: poke Agua
+add key Dewgong: poke Agua/Gelo
+add key Grimer: poke Veneno
+add key Muk: poke Veneno
+add key Shellder: poke Agua
+add key Cloyster: poke Agua/Gelo
+add key Gastly: poke Fantasma/Veneno
+add key Haunter: poke Fantasma/Veneno
+add key Gengar: poke Fantasma/Veneno
+add key Onix: poke Pedra/Terra
+add key Drowzee: poke Psiquico
+add key Hypno: poke Psiquico
+add key Krabby: poke Agua
+add key Kingler: poke Agua
+add key Voltorb: poke Eletrico
+add key Electrode: poke Eletrico
+add key Exeggcute: poke Planta/Psiquico
+add key Exeggutor: poke Planta/Psiquico
+add key Cubone: poke Terra
+add key Marowak: poke Terra
+add key Hitmonlee: poke Lutador
+add key Hitmonchan: poke Lutador
+add key Lickitung: poke Normal
+add key Koffing: poke Veneno
+add key Weezing: poke Veneno
+add key Rhyhorn: poke Terra/Pedra
+add key Rhydon: poke Terra/Pedra
+add key Chansey: poke Normal
+add key Tangela: poke Planta
+add key Kangaskhan: poke Normal
+add key Horsea: poke Agua
+add key Seadra: poke Agua
+add key Goldeen: poke Agua
+add key Seaking: poke Agua
+add key Staryu: poke Agua
+add key Starmie: poke Agua/Psiquico
+add key Mr: poke Tipo:
+add key Scyther: poke Inseto/Voador
+add key Jynx: poke Gelo/Psiquico
+add key Electabuzz: poke Eletrico
+add key Magmar: poke Fogo
+add key Pinsir: poke Inseto
+add key Tauros: poke Normal
+add key Magikarp: poke Agua
+add key Gyarados: poke Agua/Voador
+add key Lapras: poke Agua/Gelo
+add key Ditto: poke Normal
+add key Eevee: poke Normal
+add key Vaporeon: poke Agua
+add key Jolteon: poke Eletrico
+add key Flareon: poke Fogo
+add key Porygon: poke Normal
+add key Omanyte: poke Pedra/Agua
+add key Omastar: poke Pedra/Agua
+add key Kabuto: poke Pedra/Agua
+add key Kabutops: poke Pedra/Agua
+add key Aerodactyl: poke Pedra/Voador
+add key Snorlax: poke Normal
+add key Articuno: poke Gelo/Voador
+add key Zapdos: poke Eletrico/Voador
+add key Moltres: poke Fogo/Voador
+add key Dratini: poke Dragao
+add key Dragonair: poke Dragao
+add key Dragonite: poke Dragao/Voador
+add key Mewtwo: poke Psiquico
+add key Mew: poke Psiquico
+add key Chikorita: poke Planta
+add key Bayleef: poke Planta
+add key Meganium: poke Planta
+add key Cyndaquil: poke Fogo
+add key Quilava: poke Fogo
+add key Typhlosion: poke Fogo
+add key Totodile: poke Agua
+add key Croconaw: poke Agua
+add key Feraligatr: poke Agua
+add key Sentret: poke Normal
+add key Furret: poke Normal
+add key Hoothoot: poke Normal/Voador
+add key Noctowl: poke Normal/Voador
+add key Ledyba: poke Inseto/Voador
+add key Ledian: poke Inseto/Voador
+add key Spinarak: poke Inseto/Veneno
+add key Ariados: poke Inseto/Veneno
+add key Crobat: poke Veneno/Voador
+add key Chinchou: poke Agua/Eletrico
+add key Lanturn: poke Agua/Eletrico
+add key Pichu: poke Eletrico
+add key Cleffa: poke Normal
+add key Igglybuff: poke Normal
+add key Togepi: poke Normal
+add key Togetic: poke Normal/Voador
+add key Natu: poke Psiquico/Voador
+add key Xatu: poke Psiquico/Voador
+add key Mareep: poke Eletrico
+add key Flaaffy: poke Eletrico
+add key Ampharos: poke Eletrico
+add key Bellossom: poke Planta
+add key Marill: poke Agua
+add key Azumarill: poke Agua
+add key Sudowoodo: poke Pedra
+add key Politoed: poke Agua
+add key Hoppip: poke Planta/Voador
+add key Skiploom: poke Planta/Voador
+add key Jumpluff: poke Planta/Voador
+add key Aipom: poke Normal
+add key Sunkern: poke Planta
+add key Sunflora: poke Planta
+add key Yanma: poke Inseto/Voador
+add key Wooper: poke Agua/Terra
+add key Quagsire: poke Agua/Terra
+add key Espeon: poke Psiquico
+add key Umbreon: poke Noturno
+add key Murkrow: poke Noturno/Voador
+add key Slowking: poke Agua/Psiquico
+add key Misdreavus: poke Fantasma
+add key Unown: poke Psiquico
+add key Wobbuffet: poke Psiquico
+add key Girafarig: poke Normal/Psiquico
+add key Pineco: poke Inseto
+add key Forretress: poke Inseto/Metalico
+add key Dunsparce: poke Normal
+add key Gligar: poke Terra/Voador
+add key Steelix: poke Metalico/Terra
+add key Snubbull: poke Normal
+add key Granbull: poke Normal
+add key Qwilfish: poke Agua/Veneno
+add key Scizor: poke Inseto/Metalico
+add key Shuckle: poke Inseto/Pedra
+add key Heracross: poke Inseto/Lutador
+add key Sneasel: poke Noturno/Gelo
+add key Teddiursa: poke Normal
+add key Ursaring: poke Normal
+add key Slugma: poke Fogo
+add key Magcargo: poke Fogo/Pedra
+add key Swinub: poke Gelo/Terra
+add key Piloswine: poke Gelo/Terra
+add key Corsola: poke Agua/Pedra
+add key Remoraid: poke Agua
+add key Octillery: poke Agua
+add key Delibird: poke Gelo/Voador
+add key Mantine: poke Agua/Voador
+add key Skarmory: poke Metalico/Voador
+add key Houndour: poke Noturno/Fogo
+add key Houndoom: poke Noturno/Fogo
+add key Kingdra: poke Agua/Dragao
+add key Phanpy: poke Terra
+add key Donphan: poke Terra
+add key Porygon2: poke Normal
+add key Stantler: poke Normal
+add key Smeargle: poke Normal
+add key Tyrogue: poke Lutador
+add key Hitmontop: poke Lutador
+add key Smoochum: poke Gelo/Psiquico
+add key Elekid: poke Eletrico
+add key Magby: poke Fogo
+add key Miltank: poke Normal
+add key Blissey: poke Normal
+add key Raikou: poke Eletrico
+add key Entei: poke Fogo
+add key Suicune: poke Agua
+add key Larvitar: poke Pedra/Terra
+add key Pupitar: poke Pedra/Terra
+add key Tyranitar: poke Pedra/Noturno
+add key Lugia: poke Psiquico/Voador
+add key Ho-oh: poke Fogo/Voador
+add key Celebi: poke Psiquico/Planta
+add key Treecko: poke Planta
+add key Grovyle: poke Planta
+add key Sceptile: poke Planta
+add key Torchic: poke Fogo
+add key Combusken: poke Fogo/Lutador
+add key Blaziken: poke Fogo/Lutador
+add key Mudkip: poke Agua
+add key Marshtomp: poke Agua/Terra
+add key Swampert: poke Agua/Terra
+add key Poochyena: poke Noturno
+add key Mightyena: poke Noturno
+add key Zigzagoon: poke Normal
+add key Linoone: poke Normal
+add key Wurmple: poke Inseto
+add key Silcoon: poke Inseto
+add key Beautifly: poke Inseto/Voador
+add key Cascoon: poke Inseto
+add key Dustox: poke Inseto/Veneno
+add key Lotad: poke Agua/Planta
+add key Lombre: poke Agua/Planta
+add key Ludicolo: poke Agua/Planta
+add key Seedot: poke Planta
+add key Nuzleaf: poke Planta/Noturno
+add key Shiftry: poke Planta/Noturno
+add key Taillow: poke Normal/Voador
+add key Swellow: poke Normal/Voador
+add key Wingull: poke Agua/Voador
+add key Pelipper: poke Agua/Voador
+add key Ralts: poke Psiquico
+add key Kirlia: poke Psiquico
+add key Gardevoir: poke Psiquico
+add key Surskit: poke Inseto/Agua
+add key Masquerain: poke Inseto/Voador
+add key Shroomish: poke Planta
+add key Breloom: poke Planta/Lutador
+add key Slakoth: poke Normal
+add key Vigoroth: poke Normal
+add key Slaking: poke Normal
+add key Nincada: poke Inseto/Terra
+add key Ninjask: poke Inseto/Voador
+add key Shedinja: poke Inseto/Fantasma
+add key Whismur: poke Normal
+add key Loudred: poke Normal
+add key Exploud: poke Normal
+add key Makuhita: poke Lutador
+add key Hariyama: poke Lutador
+add key Azurill: poke Normal
+add key Nosepass: poke Pedra
+add key Skitty: poke Normal
+add key Delcatty: poke Normal
+add key Sableye: poke Noturno/Fantasma
+add key Mawile: poke Metalico
+add key Aron: poke Metalico/Pedra
+add key Lairon: poke Metalico/Pedra
+add key Aggron: poke Metalico/Pedra
+add key Meditite: poke Lutador/Psiquico
+add key Medicham: poke Lutador/Psiquico
+add key Electrike: poke Eletrico
+add key Manectric: poke Eletrico
+add key Plusle: poke Eletrico
+add key Minun: poke Eletrico
+add key Volbeat: poke Inseto
+add key Illumise: poke Inseto
+add key Roselia: poke Planta/Veneno
+add key Gulpin: poke Veneno
+add key Swalot: poke Veneno
+add key Carvanha: poke Agua/Noturno
+add key Sharpedo: poke Agua/Noturno
+add key Wailmer: poke Agua
+add key Wailord: poke Agua
+add key Numel: poke Fogo/Terra
+add key Camerupt: poke Fogo/Terra
+add key Torkoal: poke Fogo
+add key Spoink: poke Psiquico
+add key Grumpig: poke Psiquico
+add key Spinda: poke Normal
+add key Trapinch: poke Terra
+add key Vibrava: poke Terra/Dragao
+add key Flygon: poke Terra/Dragao
+add key Cacnea: poke Planta
+add key Cacturne: poke Planta/Noturno
+add key Swablu: poke Normal/Voador
+add key Altaria: poke Dragao/Voador
+add key Zangoose: poke Normal
+add key Seviper: poke Veneno
+add key Lunatone: poke Pedra/Psiquico
+add key Solrock: poke Pedra/Psiquico
+add key Barboach: poke Agua/Terra
+add key Whiscash: poke Agua/Terra
+add key Corphish: poke Agua
+add key Crawdaunt: poke Agua/Noturno
+add key Baltoy: poke Terra/Psiquico
+add key Claydol: poke Terra/Psiquico
+add key Lileep: poke Pedra/Planta
+add key Cradily: poke Pedra/Planta
+add key Anorith: poke Pedra/Inseto
+add key Armaldo: poke Pedra/Inseto
+add key Feebas: poke Agua
+add key Milotic: poke Agua
+add key Castform: poke Normal
+add key Kecleon: poke Normal
+add key Shuppet: poke Fantasma
+add key Banette: poke Fantasma
+add key Duskull: poke Fantasma
+add key Dusclops: poke Fantasma
+add key Tropius: poke Planta/Voador
+add key Chimecho: poke Psiquico
+add key Absol: poke Noturno
+add key Wynaut: poke Psiquico
+add key Snorunt: poke Gelo
+add key Glalie: poke Gelo
+add key Spheal: poke Gelo/Agua
+add key Sealeo: poke Gelo/Agua
+add key Walrein: poke Gelo/Agua
+add key Clamperl: poke Agua
+add key Huntail: poke Agua
+add key Gorebyss: poke Agua
+add key Relicanth: poke Agua/Pedra
+add key Luvdisc: poke Agua
+add key Bagon: poke Dragao
+add key Shelgon: poke Dragao
+add key Salamence: poke Dragao/Voador
+add key Beldum: poke Metalico/Psiquico
+add key Metang: poke Metalico/Psiquico
+add key Metagross: poke Metalico/Psiquico
+add key Regirock: poke Pedra
+add key Regice: poke Gelo
+add key Registeel: poke Metalico
+add key Latias: poke Dragao/Psiquico
+add key Latios: poke Dragao/Psiquico
+add key Kyogre: poke Agua
+add key Groudon: poke Terra
+add key Rayquaza: poke Dragao/Voador
+add key Jirachi: poke Metalico/Psiquico
+add key Deoxys: poke Psiquico
+add key Turtwig: poke Planta
+add key Grotle: poke Planta
+add key Torterra: poke Planta/Terra
+add key Chimchar: poke Fogo
+add key Monferno: poke Fogo/Lutador
+add key Infernape: poke Fogo/Lutador
+add key Piplup: poke Agua
+add key Prinplup: poke Agua
+add key Empoleon: poke Agua/Metalico
+add key Starly: poke Normal/Voador
+add key Staravia: poke Normal/Voador
+add key Staraptor: poke Normal/Voador
+add key Bidoof: poke Normal
+add key Bibarel: poke Normal/Agua
+add key Kricketot: poke Inseto
+add key Kricketune: poke Inseto
+add key Shinx: poke Eletrico
+add key Luxio: poke Eletrico
+add key Luxray: poke Eletrico
+add key Budew: poke Planta/Veneno
+add key Roserade: poke Planta/Veneno
+add key Cranidos: poke Pedra
+add key Rampardos: poke Pedra
+add key Shieldon: poke Pedra/Metalico
+add key Bastiodon: poke Pedra/Metalico
+add key Burmy: poke Inseto
+add key Wormadam: poke Inseto
+add key Mothim: poke Inseto/Voador
+add key Combee: poke Inseto/Voador
+add key Vespiquen: poke Inseto/Voador
+add key Pachirisu: poke Eletrico
+add key Buizel: poke Agua
+add key Floatzel: poke Agua
+add key Cherubi: poke Planta
+add key Cherrim: poke Planta
+add key Shellos: poke Agua
+add key Gastrodon: poke Agua/Terra
+add key Ambipom: poke Normal
+add key Drifloon: poke Fantasma/Voador
+add key Drifblim: poke Fantasma/Voador
+add key Buneary: poke Normal
+add key Lopunny: poke Normal
+add key Mismagius: poke Fantasma
+add key Honchkrow: poke Noturno/Voador
+add key Glameow: poke Normal
+add key Purugly: poke Normal
+add key Chingling: poke Psiquico
+add key Stunky: poke Veneno/Noturno
+add key Skuntank: poke Veneno/Noturno
+add key Bronzor: poke Metalico/Psiquico
+add key Brozong: poke Metalico/Psiquico
+add key Bonsly: poke Pedra
+add key Mime: poke Tipo:
+add key Happiny: poke Normal
+add key Chatot: poke Normal/Voador
+add key Spiritomb: poke Fantasma/Noturno
+add key Gible: poke Dragao/Terra
+add key Gabite: poke Dragao/Terra
+add key Garchomp: poke Dragao/Terra
+add key Munchlax: poke Normal
+add key Riolu: poke Lutador
+add key Lucario: poke Lutador/Metalico
+add key Hippopotas: poke Terra
+add key Hippowdon: poke Terra
+add key Skorupi: poke Veneno/Inseto
+add key Drapion: poke Veneno/Noturno
+add key Croagunk: poke Veneno/Lutador
+add key Toxicroak: poke Veneno/Lutador
+add key Carnivine: poke Planta
+add key Finneon: poke Agua
+add key Lumineon: poke Agua
+add key Mantyke: poke Agua/Voador
+add key Snover: poke Planta/Gelo
+add key Abomasnow: poke Planta/Gelo
+add key Weavile: poke Noturno/Gelo
+add key Magnezone: poke Eletrico/Metalico
+add key Lickilicky: poke Normal
+add key Rhyperior: poke Terra/Pedra
+add key Tangrowth: poke Planta
+add key Electrivire: poke Eletrico
+add key Magmortar: poke Fogo
+add key Togekiss: poke Normal/Voador
+add key Yanmega: poke Inseto/Voador
+add key Leafeon: poke Planta
+add key Glaceon: poke Gelo
+add key Gliscor: poke Terra/Voador
+add key Mamoswine: poke Gelo/Terra
+add key PorygonZ: poke Normal
+add key Gallade: poke Psiquico/Lutador
+add key Probopass: poke Pedra/Metalico
+add key Dusknoir: poke Fantasma
+add key Froslass: poke Gelo/Fantasma
+add key Rotom: poke Eletrico/Fantasma
+add key Uxie: poke Psiquico
+add key Mesprit: poke Psiquico
+add key Azelf: poke Psiquico
+add key Dialga: poke Metalico/Dragao
+add key Palkia: poke Agua/Dragao
+add key Heatran: poke Fogo/Metalico
+add key Regigigas: poke Normal
+add key Giratina: poke Fantasma/Dragao
+add key Cresselia: poke Psiquico
+add key Phione: poke Agua
+add key Manaphy: poke Agua
+add key Darkrai: poke Noturno
+add key Shaymin: poke Planta
+add key Arceus: poke Normal
+add tag #1 Bulbasaur
+add tag #2 Ivysaur
+add tag #3 Venusaur
+add tag #4 Charmander
+add tag #5 Charmeleon
+add tag #6 Charizard
+add tag #7 Squirtle
+add tag #8 Wartortle
+add tag #9 Blastoise
+add tag #10 Caterpie
+add tag #11 Metapod
+add tag #12 Butterfree
+add tag #13 Weedle
+add tag #14 Kakuna
+add tag #15 Beedrill
+add tag #16 Pidgey
+add tag #17 Pidgeotto
+add tag #18 Pidgeot
+add tag #19 Rattata
+add tag #20 Raticate
+add tag #21 Spearow
+add tag #22 Fearow
+add tag #23 Ekans
+add tag #24 Arbok
+add tag #25 Pikachu
+add tag #26 Raichu
+add tag #27 Sandshrew
+add tag #28 Sandslash
+add tag #29 Nidoran
+add tag #30 Nidorina
+add tag #31 Nidoqueen
+add tag #32 Nidoran
+add tag #33 Nidorino
+add tag #34 Nidoking
+add tag #35 Clefairy
+add tag #36 Clefable
+add tag #37 Vulpix
+add tag #38 Ninetales
+add tag #39 Jigglypuff
+add tag #40 Wigglytuff
+add tag #41 Zubat
+add tag #42 Golbat
+add tag #43 Oddish
+add tag #44 Gloom
+add tag #45 Vileplume
+add tag #46 Paras
+add tag #47 Parasect
+add tag #48 Venonat
+add tag #49 Venomoth
+add tag #50 Diglett
+add tag #51 Dugtrio
+add tag #52 Meowth
+add tag #53 Persian
+add tag #54 Psyduck
+add tag #55 Golduck
+add tag #56 Mankey
+add tag #57 Primeape
+add tag #58 Growlithe
+add tag #59 Arcanine
+add tag #60 Poliwag
+add tag #61 Poliwhirl
+add tag #62 Poliwrath
+add tag #63 Abra
+add tag #64 Kadabra
+add tag #65 Alakazam
+add tag #66 Machop
+add tag #67 Machoke
+add tag #68 Machamp
+add tag #69 Bellsprout
+add tag #70 Weepinbell
+add tag #71 Victreebell
+add tag #72 Tentacool
+add tag #73 Tentacruel
+add tag #74 Geodude
+add tag #75 Graveler
+add tag #76 Golem
+add tag #77 Ponyta
+add tag #78 Rapidash
+add tag #79 Slowpoke
+add tag #80 Slowbro
+add tag #81 Magnemite
+add tag #82 Magneton
+add tag #83 Farfetch'd
+add tag #84 Doduo
+add tag #85 Dodrio
+add tag #86 Seel
+add tag #87 Dewgong
+add tag #88 Grimer
+add tag #89 Muk
+add tag #90 Shellder
+add tag #91 Cloyster
+add tag #92 Gastly
+add tag #93 Haunter
+add tag #94 Gengar
+add tag #95 Onix
+add tag #96 Drowzee
+add tag #97 Hypno
+add tag #98 Krabby
+add tag #99 Kingler
+add tag #100 Voltorb
+add tag #101 Electrode
+add tag #102 Exeggcute
+add tag #103 Exeggutor
+add tag #104 Cubone
+add tag #105 Marowak
+add tag #106 Hitmonlee
+add tag #107 Hitmonchan
+add tag #108 Lickitung
+add tag #109 Koffing
+add tag #110 Weezing
+add tag #111 Rhyhorn
+add tag #112 Rhydon
+add tag #113 Chansey
+add tag #114 Tangela
+add tag #115 Kangaskhan
+add tag #116 Horsea
+add tag #117 Seadra
+add tag #118 Goldeen
+add tag #119 Seaking
+add tag #120 Staryu
+add tag #121 Starmie
+add tag #122 Mr
+add tag #123 Scyther
+add tag #124 Jynx
+add tag #125 Electabuzz
+add tag #126 Magmar
+add tag #127 Pinsir
+add tag #128 Tauros
+add tag #129 Magikarp
+add tag #130 Gyarados
+add tag #131 Lapras
+add tag #132 Ditto
+add tag #133 Eevee
+add tag #134 Vaporeon
+add tag #135 Jolteon
+add tag #136 Flareon
+add tag #137 Porygon
+add tag #138 Omanyte
+add tag #139 Omastar
+add tag #140 Kabuto
+add tag #141 Kabutops
+add tag #142 Aerodactyl
+add tag #143 Snorlax
+add tag #144 Articuno
+add tag #145 Zapdos
+add tag #146 Moltres
+add tag #147 Dratini
+add tag #148 Dragonair
+add tag #149 Dragonite
+add tag #150 Mewtwo
+add tag #151 Mew
+add tag #152 Chikorita
+add tag #153 Bayleef
+add tag #154 Meganium
+add tag #155 Cyndaquil
+add tag #156 Quilava
+add tag #157 Typhlosion
+add tag #158 Totodile
+add tag #159 Croconaw
+add tag #160 Feraligatr
+add tag #161 Sentret
+add tag #162 Furret
+add tag #163 Hoothoot
+add tag #164 Noctowl
+add tag #165 Ledyba
+add tag #166 Ledian
+add tag #167 Spinarak
+add tag #168 Ariados
+add tag #169 Crobat
+add tag #170 Chinchou
+add tag #171 Lanturn
+add tag #172 Pichu
+add tag #173 Cleffa
+add tag #174 Igglybuff
+add tag #175 Togepi
+add tag #176 Togetic
+add tag #177 Natu
+add tag #178 Xatu
+add tag #179 Mareep
+add tag #180 Flaaffy
+add tag #181 Ampharos
+add tag #182 Bellossom
+add tag #183 Marill
+add tag #184 Azumarill
+add tag #185 Sudowoodo
+add tag #186 Politoed
+add tag #187 Hoppip
+add tag #188 Skiploom
+add tag #189 Jumpluff
+add tag #190 Aipom
+add tag #191 Sunkern
+add tag #192 Sunflora
+add tag #193 Yanma
+add tag #194 Wooper
+add tag #195 Quagsire
+add tag #196 Espeon
+add tag #197 Umbreon
+add tag #198 Murkrow
+add tag #199 Slowking
+add tag #200 Misdreavus
+add tag #201 Unown
+add tag #202 Wobbuffet
+add tag #203 Girafarig
+add tag #204 Pineco
+add tag #205 Forretress
+add tag #206 Dunsparce
+add tag #207 Gligar
+add tag #208 Steelix
+add tag #209 Snubbull
+add tag #210 Granbull
+add tag #211 Qwilfish
+add tag #212 Scizor
+add tag #213 Shuckle
+add tag #214 Heracross
+add tag #215 Sneasel
+add tag #216 Teddiursa
+add tag #217 Ursaring
+add tag #218 Slugma
+add tag #219 Magcargo
+add tag #220 Swinub
+add tag #221 Piloswine
+add tag #222 Corsola
+add tag #223 Remoraid
+add tag #224 Octillery
+add tag #225 Delibird
+add tag #226 Mantine
+add tag #227 Skarmory
+add tag #228 Houndour
+add tag #229 Houndoom
+add tag #230 Kingdra
+add tag #231 Phanpy
+add tag #232 Donphan
+add tag #233 Porygon2
+add tag #234 Stantler
+add tag #235 Smeargle
+add tag #236 Tyrogue
+add tag #237 Hitmontop
+add tag #238 Smoochum
+add tag #239 Elekid
+add tag #240 Magby
+add tag #241 Miltank
+add tag #242 Blissey
+add tag #243 Raikou
+add tag #244 Entei
+add tag #245 Suicune
+add tag #246 Larvitar
+add tag #247 Pupitar
+add tag #248 Tyranitar
+add tag #249 Lugia
+add tag #250 Ho-oh
+add tag #251 Celebi
+add tag #252 Treecko
+add tag #253 Grovyle
+add tag #254 Sceptile
+add tag #255 Torchic
+add tag #256 Combusken
+add tag #257 Blaziken
+add tag #258 Mudkip
+add tag #259 Marshtomp
+add tag #260 Swampert
+add tag #261 Poochyena
+add tag #262 Mightyena
+add tag #263 Zigzagoon
+add tag #264 Linoone
+add tag #265 Wurmple
+add tag #266 Silcoon
+add tag #267 Beautifly
+add tag #268 Cascoon
+add tag #269 Dustox
+add tag #270 Lotad
+add tag #271 Lombre
+add tag #272 Ludicolo
+add tag #273 Seedot
+add tag #274 Nuzleaf
+add tag #275 Shiftry
+add tag #276 Taillow
+add tag #277 Swellow
+add tag #278 Wingull
+add tag #279 Pelipper
+add tag #280 Ralts
+add tag #281 Kirlia
+add tag #282 Gardevoir
+add tag #283 Surskit
+add tag #284 Masquerain
+add tag #285 Shroomish
+add tag #286 Breloom
+add tag #287 Slakoth
+add tag #288 Vigoroth
+add tag #289 Slaking
+add tag #290 Nincada
+add tag #291 Ninjask
+add tag #292 Shedinja
+add tag #293 Whismur
+add tag #294 Loudred
+add tag #295 Exploud
+add tag #296 Makuhita
+add tag #297 Hariyama
+add tag #298 Azurill
+add tag #299 Nosepass
+add tag #300 Skitty
+add tag #301 Delcatty
+add tag #302 Sableye
+add tag #303 Mawile
+add tag #304 Aron
+add tag #305 Lairon
+add tag #306 Aggron
+add tag #307 Meditite
+add tag #308 Medicham
+add tag #309 Electrike
+add tag #310 Manectric
+add tag #311 Plusle
+add tag #312 Minun
+add tag #313 Volbeat
+add tag #314 Illumise
+add tag #315 Roselia
+add tag #316 Gulpin
+add tag #317 Swalot
+add tag #318 Carvanha
+add tag #319 Sharpedo
+add tag #320 Wailmer
+add tag #321 Wailord
+add tag #322 Numel
+add tag #323 Camerupt
+add tag #324 Torkoal
+add tag #325 Spoink
+add tag #326 Grumpig
+add tag #327 Spinda
+add tag #328 Trapinch
+add tag #329 Vibrava
+add tag #330 Flygon
+add tag #331 Cacnea
+add tag #332 Cacturne
+add tag #333 Swablu
+add tag #334 Altaria
+add tag #335 Zangoose
+add tag #336 Seviper
+add tag #337 Lunatone
+add tag #338 Solrock
+add tag #339 Barboach
+add tag #340 Whiscash
+add tag #341 Corphish
+add tag #342 Crawdaunt
+add tag #343 Baltoy
+add tag #344 Claydol
+add tag #345 Lileep
+add tag #346 Cradily
+add tag #347 Anorith
+add tag #348 Armaldo
+add tag #349 Feebas
+add tag #350 Milotic
+add tag #351 Castform
+add tag #352 Kecleon
+add tag #353 Shuppet
+add tag #354 Banette
+add tag #355 Duskull
+add tag #356 Dusclops
+add tag #357 Tropius
+add tag #358 Chimecho
+add tag #359 Absol
+add tag #360 Wynaut
+add tag #361 Snorunt
+add tag #362 Glalie
+add tag #363 Spheal
+add tag #364 Sealeo
+add tag #365 Walrein
+add tag #366 Clamperl
+add tag #367 Huntail
+add tag #368 Gorebyss
+add tag #369 Relicanth
+add tag #370 Luvdisc
+add tag #371 Bagon
+add tag #372 Shelgon
+add tag #373 Salamence
+add tag #374 Beldum
+add tag #375 Metang
+add tag #376 Metagross
+add tag #377 Regirock
+add tag #378 Regice
+add tag #379 Registeel
+add tag #380 Latias
+add tag #381 Latios
+add tag #382 Kyogre
+add tag #383 Groudon
+add tag #384 Rayquaza
+add tag #385 Jirachi
+add tag #386 Deoxys
+add tag #387 Turtwig
+add tag #388 Grotle
+add tag #389 Torterra
+add tag #390 Chimchar
+add tag #391 Monferno
+add tag #392 Infernape
+add tag #393 Piplup
+add tag #394 Prinplup
+add tag #395 Empoleon
+add tag #396 Starly
+add tag #397 Staravia
+add tag #398 Staraptor
+add tag #399 Bidoof
+add tag #400 Bibarel
+add tag #401 Kricketot
+add tag #402 Kricketune
+add tag #403 Shinx
+add tag #404 Luxio
+add tag #405 Luxray
+add tag #406 Budew
+add tag #407 Roserade
+add tag #408 Cranidos
+add tag #409 Rampardos
+add tag #410 Shieldon
+add tag #411 Bastiodon
+add tag #412 Burmy
+add tag #413 Wormadam
+add tag #414 Mothim
+add tag #415 Combee
+add tag #416 Vespiquen
+add tag #417 Pachirisu
+add tag #418 Buizel
+add tag #419 Floatzel
+add tag #420 Cherubi
+add tag #421 Cherrim
+add tag #422 Shellos
+add tag #423 Gastrodon
+add tag #424 Ambipom
+add tag #425 Drifloon
+add tag #426 Drifblim
+add tag #427 Buneary
+add tag #428 Lopunny
+add tag #429 Mismagius
+add tag #430 Honchkrow
+add tag #431 Glameow
+add tag #432 Purugly
+add tag #433 Chingling
+add tag #434 Stunky
+add tag #435 Skuntank
+add tag #436 Bronzor
+add tag #437 Brozong
+add tag #438 Bonsly
+add tag #439 Mime
+add tag #440 Happiny
+add tag #441 Chatot
+add tag #442 Spiritomb
+add tag #443 Gible
+add tag #444 Gabite
+add tag #445 Garchomp
+add tag #446 Munchlax
+add tag #447 Riolu
+add tag #448 Lucario
+add tag #449 Hippopotas
+add tag #450 Hippowdon
+add tag #451 Skorupi
+add tag #452 Drapion
+add tag #453 Croagunk
+add tag #454 Toxicroak
+add tag #455 Carnivine
+add tag #456 Finneon
+add tag #457 Lumineon
+add tag #458 Mantyke
+add tag #459 Snover
+add tag #460 Abomasnow
+add tag #461 Weavile
+add tag #462 Magnezone
+add tag #463 Lickilicky
+add tag #464 Rhyperior
+add tag #465 Tangrowth
+add tag #466 Electrivire
+add tag #467 Magmortar
+add tag #468 Togekiss
+add tag #469 Yanmega
+add tag #470 Leafeon
+add tag #471 Glaceon
+add tag #472 Gliscor
+add tag #473 Mamoswine
+add tag #474 PorygonZ
+add tag #475 Gallade
+add tag #476 Probopass
+add tag #477 Dusknoir
+add tag #478 Froslass
+add tag #479 Rotom
+add tag #480 Uxie
+add tag #481 Mesprit
+add tag #482 Azelf
+add tag #483 Dialga
+add tag #484 Palkia
+add tag #485 Heatran
+add tag #486 Regigigas
+add tag #487 Giratina
+add tag #488 Cresselia
+add tag #489 Phione
+add tag #490 Manaphy
+add tag #491 Darkrai
+add tag #492 Shaymin
+add tag #493 Arceus
+add key Agua: lista Squirtle Wartortle Blastoise Psyduck Golduck Poliwag Poliwhirl Poliwrath Tentacool Tentacruel Slowpoke Slowbro Seel Dewgong Shellder Cloyster Krabby Kingler Horsea Seadra Goldeen Seaking Staryu Starmie Magikarp Gyarados Lapras Vaporeon Omanyte Omastar Kabuto Kabutops Totodile Croconaw Feraligatr Chinchou Lanturn Marill Azumarill Politoed Wooper Quagsire Slowking Qwilfish Corsola Remoraid Octillery Mantine Kingdra Suicune Mudkip Marshtomp Swampert Lotad Lombre Ludicolo Wingull Pelipper Surskit Carvanha Sharpedo Wailmer Wailord Barboach Whiscash Corphish Crawdaunt Feebas Milotic Spheal Sealeo Walrein Clamperl Huntail Gorebyss Relicanth Luvdisc Kyogre Piplup Prinplup Empoleon Bibarel Buizel Floatzel Shellos Gastrodon Finneon Lumineon Mantyke Palkia Phione Manaphy 
+add key Dragao: lista Dratini Dragonair Dragonite Kingdra Vibrava Flygon Altaria Bagon Shelgon Salamence Latias Latios Rayquaza Gible Gabite Garchomp Dialga Palkia Giratina 
+add key Eletrico: lista Pikachu Raichu Magnemite Magneton Voltorb Electrode Electabuzz Jolteon Zapdos Chinchou Lanturn Pichu Mareep Flaaffy Ampharos Elekid Raikou Electrike Manectric Plusle Minun Shinx Luxio Luxray Pachirisu Magnezone Electrivire Rotom 
+add key Fantasma: lista Gastly Haunter Gengar Misdreavus Shedinja Sableye Shuppet Banette Duskull Dusclops Drifloon Drifblim Mismagius Spiritomb Dusknoir Froslass Rotom Giratina 
+add key Fogo: lista Charmander Charmeleon Charizard Vulpix Ninetales Growlithe Arcanine Ponyta Rapidash Magmar Flareon Moltres Cyndaquil Quilava Typhlosion Slugma Magcargo Houndour Houndoom Magby Entei Ho-oh Torchic Combusken Blaziken Numel Camerupt Torkoal Chimchar Monferno Infernape Magmortar Heatran 
+add key Gelo: lista Dewgong Cloyster Jynx Lapras Articuno Sneasel Swinub Piloswine Delibird Smoochum Snorunt Glalie Spheal Sealeo Walrein Regice Snover Abomasnow Weavile Glaceon Mamoswine Froslass 
+add key Inseto: lista Caterpie Metapod Butterfree Weedle Kakuna Beedrill Paras Parasect Venonat Venomoth Scyther Pinsir Ledyba Ledian Spinarak Ariados Yanma Pineco Forretress Scizor Shuckle Heracross Wurmple Silcoon Beautifly Cascoon Dustox Surskit Masquerain Nincada Ninjask Shedinja Volbeat Illumise Anorith Armaldo Kricketot Kricketune Burmy Wormadam Mothim Combee Vespiquen Skorupi Yanmega 
+add key Lutador: lista Mankey Primeape Poliwrath Machop Machoke Machamp Hitmonlee Hitmonchan Heracross Tyrogue Hitmontop Combusken Blaziken Breloom Makuhita Hariyama Meditite Medicham Monferno Infernape Riolu Lucario Croagunk Toxicroak Gallade 
+add key Metalico: lista Magnemite Magneton Forretress Steelix Scizor Skarmory Mawile Aron Lairon Aggron Beldum Metang Metagross Registeel Jirachi Empoleon Shieldon Bastiodon Bronzor Brozong Lucario Magnezone Probopass Dialga Heatran 
+add key Normal: lista Pidgey Pidgeotto Pidgeot Rattata Raticate Spearow Fearow Clefairy Clefable Jigglypuff Wigglytuff Meowth Persian Farfetch'd Doduo Dodrio Lickitung Chansey Kangaskhan Tauros Ditto Eevee Porygon Snorlax Sentret Furret Hoothoot Noctowl Cleffa Igglybuff Togepi Togetic Aipom Girafarig Dunsparce Snubbull Granbull Teddiursa Ursaring Porygon2 Stantler Smeargle Miltank Blissey Zigzagoon Linoone Taillow Swellow Slakoth Vigoroth Slaking Whismur Loudred Exploud Azurill Skitty Delcatty Spinda Swablu Zangoose Castform Kecleon Starly Staravia Staraptor Bidoof Bibarel Ambipom Buneary Lopunny Glameow Purugly Happiny Chatot Munchlax Lickilicky Togekiss PorygonZ Regigigas Arceus 
+add key Noturno: lista Umbreon Murkrow Sneasel Houndour Houndoom Tyranitar Poochyena Mightyena Nuzleaf Shiftry Sableye Carvanha Sharpedo Cacturne Crawdaunt Absol Honchkrow Stunky Skuntank Spiritomb Drapion Weavile Darkrai 
+add key Pedra: lista Geodude Graveler Golem Onix Rhyhorn Rhydon Omanyte Omastar Kabuto Kabutops Aerodactyl Sudowoodo Shuckle Magcargo Corsola Larvitar Pupitar Tyranitar Nosepass Aron Lairon Aggron Lunatone Solrock Lileep Cradily Anorith Armaldo Relicanth Regirock Cranidos Rampardos Shieldon Bastiodon Bonsly Rhyperior Probopass 
+add key Planta: lista Bulbasaur Ivysaur Venusaur Oddish Gloom Vileplume Paras Parasect Bellsprout Weepinbell Victreebell Exeggcute Exeggutor Tangela Chikorita Bayleef Meganium Bellossom Hoppip Skiploom Jumpluff Sunkern Sunflora Celebi Treecko Grovyle Sceptile Lotad Lombre Ludicolo Seedot Nuzleaf Shiftry Shroomish Breloom Roselia Cacnea Cacturne Lileep Cradily Tropius Turtwig Grotle Torterra Budew Roserade Cherubi Cherrim Carnivine Snover Abomasnow Tangrowth Leafeon Shaymin 
+add key Psiquico: lista Abra Kadabra Alakazam Slowpoke Slowbro Drowzee Hypno Exeggcute Exeggutor Starmie Mr.Mime Jynx Mewtwo Mew Natu Xatu Espeon Slowking Unown Wobbuffet Girafarig Smoochum Lugia Celebi Ralts Kirlia Gardevoir Meditite Medicham Spoink Grumpig Lunatone Solrock Baltoy Claydol Chimecho Wynaut Beldum Metang Metagross Latias Latios Jirachi Deoxys Chingling Bronzor Brozong Mime-Jr. Gallade Uxie Mesprit Azelf Cresselia 
+add key Terra: lista Sandshrew Sandslash Nidoqueen Nidoking Diglett Dugtrio Geodude Graveler Golem Onix Cubone Marowak Rhyhorn Rhydon Wooper Quagsire Gligar Steelix Swinub Piloswine Phanpy Donphan Larvitar Pupitar Marshtomp Swampert Nincada Numel Camerupt Trapinch Vibrava Flygon Barboach Whiscash Baltoy Claydol Groudon Torterra Gastrodon Gible Gabite Garchomp Hippopotas Hippowdon Rhyperior Gliscor Mamoswine 
+add key veneno: lista Nidoran-A 
+add key Veneno: lista Bulbasaur Ivysaur Venusaur Weedle Kakuna Beedrill Ekans Arbok Nidorina Nidoqueen Nidoran-B Nidorino Nidoking Zubat Golbat Oddish Gloom Vileplume Venonat Venomoth Bellsprout Weepinbell Victreebell Tentacool Tentacruel Grimer Muk Gastly Haunter Gengar Koffing Weezing Spinarak Ariados Crobat Qwilfish Dustox Roselia Gulpin Swalot Seviper Budew Roserade Stunky Skuntank Skorupi Drapion Croagunk Toxicroak 
+add key Voador: lista Charizard Butterfree Pidgey Pidgeotto Pidgeot Spearow Fearow Zubat Golbat Farfetch'd Doduo Dodrio Scyther Gyarados Aerodactyl Articuno Zapdos Moltres Dragonite Hoothoot Noctowl Ledyba Ledian Crobat Togetic Natu Xatu Hoppip Skiploom Jumpluff Yanma Murkrow Gligar Delibird Mantine Skarmory Lugia Ho-oh Beautifly Taillow Swellow Wingull Pelipper Masquerain Ninjask Swablu Altaria Tropius Salamence Rayquaza Starly Staravia Staraptor Mothim Combee Vespiquen Drifloon Drifblim Honchkrow Chatot Mantyke Togekiss Yanmega Gliscor 
