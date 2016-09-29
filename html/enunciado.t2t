@@ -173,12 +173,12 @@ formato a definir
 formato a definir
 ```
 
-- **search tag content #tagid**
+- **show tagcontent #tagid**
  - Este comando busca o conteúdo da chave para qual uma tag aponta, exemplo:
 ```
 add key belo: um belo dia floresce
 tag hit #flor belo
-search tag content #flor
+show tagcontent #flor
 ```
  - A saída deverá ser o conteúdo da chave //belo//
 ```
