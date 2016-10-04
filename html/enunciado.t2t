@@ -92,7 +92,7 @@ A entrada dos dados será feita por meio de comandos. Os comandos são:
 
 ===Etapa 1===
 
-- **add key CHAVE: conteudo**
+====add key CHAVE: conteudo====
 
 exemplo:
 ```
@@ -103,9 +103,10 @@ add key teste: o dia tem um belo azul no horizonte
    caracteres;
  - A quantidade de chaves a serem adicionadas é indeterminada.
 
-- **tag hit #tag chave**
- - Atualizado 04/10/2016
 
+
+====tag hit #tag chave====
+ - Atualizado 04/10/2016
 
 
 exemplo:
@@ -119,7 +120,9 @@ tag hit #belo teste
    adicionada previamente.
  - A quantidade de tags a serem adicionadas é indeterminada.
 
-- **show tagcontent #tagid**
+
+
+====show tagcontent #tagid====
  - Este comando busca o conteúdo da chave para qual uma tag aponta, exemplo:
 ```
 add key belo: um belo dia floresce
@@ -132,15 +135,19 @@ show tagcontent #flor
 belo :. um belo dia floresce
 ```
 
-- **list trending top XX**
-- **list trending bottom XX**
+
+
+====list trending top XX====
+====list trending bottom XX====
  - quando 'top' calcula as XX% tags com mais hits do dia
  - quando 'bottom' calcula as XX% tags com menos hits do dia
  - XX é a porcentagem.
   - ex: 10 representa as top 10% (de todas as tags registradas) com mais
     hits
 
-- **dump tags**
+
+
+====dump tags====
  - Este comando indica que seu programa deverá imprimir todas as tags
    armazenadas, no formato:
 ```
@@ -163,7 +170,8 @@ dump tags
 ```
 
 
-- **dump keys**
+
+====dump keys====
  - Este comando indica que seu programa deverá imprimir todas as keys
    armazenadas, no formato:
 ```
@@ -192,28 +200,33 @@ maluco content="foreve alone" refs=0
 
 
 ===Etapa 2===
-- **rm key CHAVE**
+====rm key CHAVE====
 
 exemplo:
 ```
 rm key teste
 ```
 
-- **rm tag #tag**
+
+====rm tag #tag====
 
 exemplo:
 ```
 rm tag #belo
 ```
 
-- **rm brokentagref**
+
+====rm brokentagref====
  - Este é um mecanismo para deixar as listas saudáveis. O comando **rm key**
    pode deixar algumas tags sem referência válida. Se a chave //teste//
    existe e a tag //#belo// aponta para a chave //teste//, depois de remover
    a chave //teste// a tag //#belo// fica sem apontador e com o comando
    deste item a tag //#belo// deverá ser removida
 
-- **new day**
+
+
+
+====new day====
  - Comando que inicia um novo dia!
  - Note que SEMPRE que seu programa inicia deve ser considerado um novo dia
    sem nenhuma adição
@@ -240,7 +253,10 @@ new day
    ficou sem //hit// no dia que passou e a tag //#dia// permanecem armazenada
    pois teve um //hit//.
 
-- **rm orphankey**
+
+
+
+====rm orphankey====
  - Este comando remove as chaves que não possuem tags as referenciando,
    exemplo:
 ```
