@@ -104,12 +104,16 @@ add key teste: o dia tem um belo azul no horizonte
  - A quantidade de chaves a serem adicionadas é indeterminada.
 
 - **tag hit #tag chave**
+ - Atualizado 04/10/2016
+
+
 
 exemplo:
 ```
 tag hit #belo teste
 ```
- - **#tag**: é o nome da tag que foi colocada em algum post.
+ - **#tag**: é o nome da tag que foi colocada em algum post, __tamanho máximo__
+   __de 1000 caracteres__
  - **chave**: é o código da chave que esta tag referencia. Note que este
    comando garante que a tag que a //tag hit// aponta para uma chave
    adicionada previamente.
