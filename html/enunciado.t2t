@@ -20,6 +20,9 @@ Algoritmos e Estrutura de Dados I - Trabalho 1 e 2
     |       {{div align=right class="fb-like" data-href="ENDERECO" data-send="false" data-show-faces="true"}}{{/div}}
 
 
+**Atenção** - Este documento ainda se encontra em desenvolvimento.
+Atualizações serão constantes.
+
 =Prólogo=
 
 O mundo não é mais como antigamente. As notícias, agora, são lidas pelo
@@ -119,13 +122,14 @@ add key belo: um belo dia floresce
 tag hit #flor belo
 show tagcontent #flor
 ```
- - A saída deverá ser o conteúdo da chave //belo//
+ - A saída deverá ser o conteúdo da chave //belo//, como abaixo:
 ```
 #flor -> belo
 belo :. um belo dia floresce
 ```
 
-- **list trending top|bottom XX**
+- **list trending top XX**
+- **list trending bottom XX**
  - quando 'top' calcula as XX% tags com mais hits do dia
  - quando 'bottom' calcula as XX% tags com menos hits do dia
  - XX é a porcentagem.
@@ -136,14 +140,48 @@ belo :. um belo dia floresce
  - Este comando indica que seu programa deverá imprimir todas as tags
    armazenadas, no formato:
 ```
-formato a definir
+#tag -> chave :: hits=%d
 ```
+
+exemplo:
+ - entrada
+```
+add key belo: um belo dia floresce
+tag hit #flor belo
+tag hit #dia belo
+tag hit #dia belo
+dump tags
+```
+ - saída
+```
+#flor -> belo :: hits=1
+#dia -> belo :: hits=2
+```
+
 
 - **dump keys**
  - Este comando indica que seu programa deverá imprimir todas as keys
    armazenadas, no formato:
 ```
-formato a definir
+chave content="conteudo" refs=%d
+```
+exemplo:
+ - entrada
+```
+add key belo: um belo dia floresce
+add key orange: is the new black
+tag hit #flor belo
+tag hit #dia belo
+tag hit #dia belo
+add key maluco: forever alone
+tag hit #chato orange
+dump tags
+```
+ - saída
+```
+belo content="um belo dia floresce" refs=3
+orange content="is the new black" refs=1
+maluco content="foreve alone" refs=0
 ```
 
 
@@ -224,12 +262,16 @@ A submissão para o Rank é **Obrigatória**.
 
 No Rank a ordenação será considerada pelo SCORE, definido como:
 ```
-a definir
+Latencia*10 + Memória Usada em Bytes
 ```
+ - Quanto menor, melhor.
+
+
 
 =Prazos=
 
-- O prazo final de submissão é:
+- Para a ETAPA 1: //6 de Novembro às 23h59//
+- Para a ETAPA 2: //10 de Dezembro às 23h59//
 
 
 =Critérios da Correção=
@@ -260,6 +302,8 @@ a definir
         - Otimização
         - Limpeza do código
         - Criatividade
+    - Para o aluno ou dupla que **não** fizerem a etapa 1 no prazo, mas
+      concluírem a etapa 2, receberão no máximo nota 60 para etapa 1;
     - Defesa individual do código quando a T1 - P2 >= 40 para etapa 1, e
     - Defesa individual do código quando a T2 - P3 >= 40 para etapa 2, e
      - Lembrando que quando o trabalho for em dupla apresenta quem tiver a
