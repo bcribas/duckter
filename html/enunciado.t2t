@@ -48,9 +48,10 @@ isso, veja [aqui https://www.amazon.com/Filter-Bubble-Personalized-Changing-Thin
 e [outra vez aqui https://digdipblog.com/tag/algorithmic-bubbles/].
 
 ==A busca da salvação==
+ - Atualizado 04/10 - correção do nome para coincidir no acrônimo
 
 Sabendo de todo esse problema, a empresa mais ética do país - Agrupamento
-Ético de Dados Duck Duck Computação Diversificada, ou simplesmente AED22CP,
+Ético de Dados Duck Duck Computação Pervasiva, ou simplesmente AED22CP,
 convidou você, um nobre programador e pensador algorítmico para desenvolver
 uma solução de busca e //tageamento//.
 
@@ -149,7 +150,7 @@ belo :. um belo dia floresce
 
 ====dump tags====
  - Este comando indica que seu programa deverá imprimir todas as tags
-   armazenadas, no formato:
+   armazenadas na ordem lexicográfica, no formato:
 ```
 #tag -> chave :: hits=%d
 ```
@@ -165,15 +166,15 @@ dump tags
 ```
  - saída
 ```
-#flor -> belo :: hits=1
 #dia -> belo :: hits=2
+#flor -> belo :: hits=1
 ```
 
 
 
 ====dump keys====
  - Este comando indica que seu programa deverá imprimir todas as keys
-   armazenadas, no formato:
+   armazenadas na ordem lexicográfica, no formato:
 ```
 chave content="conteudo" refs=%d
 ```
@@ -192,8 +193,8 @@ dump tags
  - saída
 ```
 belo content="um belo dia floresce" refs=3
-orange content="is the new black" refs=1
 maluco content="foreve alone" refs=0
+orange content="is the new black" refs=1
 ```
 
 
