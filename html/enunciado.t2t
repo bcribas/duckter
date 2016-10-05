@@ -50,6 +50,8 @@ e [outra vez aqui https://digdipblog.com/tag/algorithmic-bubbles/].
 ==A busca da salvação==
  - Atualizado 04/10 - correção do nome para coincidir no acrônimo
 
+
+
 Sabendo de todo esse problema, a empresa mais ética do país - Agrupamento
 Ético de Dados Duck Duck Computação Pervasiva, ou simplesmente AED22CP,
 convidou você, um nobre programador e pensador algorítmico para desenvolver
@@ -149,6 +151,8 @@ belo :. um belo dia floresce
 
 
 ====dump tags====
+ - Atualizado 04/10 - impressão em ordem lexicográfica
+
  - Este comando indica que seu programa deverá imprimir todas as tags
    armazenadas na ordem lexicográfica, no formato:
 ```
@@ -173,6 +177,8 @@ dump tags
 
 
 ====dump keys====
+ - Atualizado 04/10 - impressão em ordem lexicográfica
+
  - Este comando indica que seu programa deverá imprimir todas as keys
    armazenadas na ordem lexicográfica, no formato:
 ```
