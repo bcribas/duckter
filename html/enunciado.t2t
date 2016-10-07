@@ -141,16 +141,152 @@ belo :. um belo dia floresce
 
 
 ====list trending top XX====
+ - [/gif/new.gif] Atualizado 07/10 - formato de saída definido
+
+ - Calcula as XX% tags com mais hits do dia
+ - XX é a porcentagem.
+  - ex: 10 representa as top 10% (de todas as tags registradas) com mais
+    hits
+
+
+exemplo:
+```
+add key b4d2fc29d0c0bcc5b9e3: NEP Stood silence hesitating This of
+add key 3ddf96f836812b6c599d: MON To December. with napping, each
+add key 61c28c2d271e75094236: BOT Door. no peering, mortal faintly
+add key 8e9fc18900fd7a78a2d1: LBA Gently came of door. there
+add key d2685fa13696eae7db0f: SAM Silence nothing each entreating whispered
+tag hit #d2685fa13696eae7db0f 61c28c2d271e75094236
+tag hit #3ddf96f836812b6c599d d2685fa13696eae7db0f
+tag hit #b4d2fc29d0c0bcc5b9e3 61c28c2d271e75094236
+tag hit #bc92e96068fbe66960de b4d2fc29d0c0bcc5b9e3
+tag hit #8e9fc18900fd7a78a2d1 3ddf96f836812b6c599d
+tag hit #8e9fc18900fd7a78a2d1 3ddf96f836812b6c599d
+tag hit #b4d2fc29d0c0bcc5b9e3 61c28c2d271e75094236
+tag hit #d2685fa13696eae7db0f 61c28c2d271e75094236
+tag hit #8e9fc18900fd7a78a2d1 3ddf96f836812b6c599d
+tag hit #75d31a34e4a3c8e2170e 8e9fc18900fd7a78a2d1
+tag hit #8e9fc18900fd7a78a2d1 3ddf96f836812b6c599d
+tag hit #d2685fa13696eae7db0f 61c28c2d271e75094236
+tag hit #75d31a34e4a3c8e2170e 8e9fc18900fd7a78a2d1
+tag hit #cef71e917f46b85dcdc5 d2685fa13696eae7db0f
+tag hit #33d31e1535be3a7cf57c b4d2fc29d0c0bcc5b9e3
+tag hit #61c28c2d271e75094236 61c28c2d271e75094236
+tag hit #bc92e96068fbe66960de b4d2fc29d0c0bcc5b9e3
+tag hit #61c28c2d271e75094236 61c28c2d271e75094236
+tag hit #61c28c2d271e75094236 61c28c2d271e75094236
+tag hit #75d31a34e4a3c8e2170e 8e9fc18900fd7a78a2d1
+tag hit #d2685fa13696eae7db0f 61c28c2d271e75094236
+tag hit #2bd93b04442d10c772e8 3ddf96f836812b6c599d
+tag hit #8e9fc18900fd7a78a2d1 3ddf96f836812b6c599d
+tag hit #bc92e96068fbe66960de b4d2fc29d0c0bcc5b9e3
+tag hit #33d31e1535be3a7cf57c b4d2fc29d0c0bcc5b9e3
+tag hit #d2685fa13696eae7db0f 61c28c2d271e75094236
+tag hit #33d31e1535be3a7cf57c b4d2fc29d0c0bcc5b9e3
+tag hit #3ddf96f836812b6c599d d2685fa13696eae7db0f
+tag hit #bc92e96068fbe66960de b4d2fc29d0c0bcc5b9e3
+tag hit #cef71e917f46b85dcdc5 d2685fa13696eae7db0f
+list trending top 30
+```
+
+saída:
+```
+Begin 30% top trending
+1   #8e9fc18900fd7a78a2d1 with 5 hits
+1   #d2685fa13696eae7db0f with 5 hits
+2   #bc92e96068fbe66960de with 4 hits
+End Trending
+```
+ - Note a primeira e última linha que representam o inicio de fim da
+   impressão do trending
+ - A ordem de impressão das tags é pela quantidade de hits (maior para
+   menor) e em caso de empate deve ser impresso em ordem lexicográfica
+ - Para cada tag do trending existirá uma linha, sendo:
+  - o primeiro campo a classificação da tag, tags com a mesma quantidade de
+    hits possuem a mesma classificação (e isso não influencia na contagem
+    dos XX% pedidos
+     - Os números da classificação devem ser impressos justificados a
+       esquerda com 3 campos (leia o manual do printf(3))
+  - o segundo campo é a tag seguido da palavra 'with' e em seguida a
+    quantidade de hits da tag, finalizado com a palavra hits
+
+
 ====list trending bottom XX====
- - quando 'top' calcula as XX% tags com mais hits do dia
- - quando 'bottom' calcula as XX% tags com menos hits do dia
+ - [/gif/new.gif] Atualizado 07/10 - formato de saída definido
+
+ - Calcula as XX% tags com menos hits do dia
  - XX é a porcentagem.
   - ex: 10 representa as top 10% (de todas as tags registradas) com mais
     hits
 
 
 
+exemplo:
+```
+add key b4d2fc29d0c0bcc5b9e3: NEP Stood silence hesitating This of
+add key 3ddf96f836812b6c599d: MON To December. with napping, each
+add key 61c28c2d271e75094236: BOT Door. no peering, mortal faintly
+add key 8e9fc18900fd7a78a2d1: LBA Gently came of door. there
+add key d2685fa13696eae7db0f: SAM Silence nothing each entreating whispered
+tag hit #d2685fa13696eae7db0f 61c28c2d271e75094236
+tag hit #3ddf96f836812b6c599d d2685fa13696eae7db0f
+tag hit #b4d2fc29d0c0bcc5b9e3 61c28c2d271e75094236
+tag hit #bc92e96068fbe66960de b4d2fc29d0c0bcc5b9e3
+tag hit #8e9fc18900fd7a78a2d1 3ddf96f836812b6c599d
+tag hit #8e9fc18900fd7a78a2d1 3ddf96f836812b6c599d
+tag hit #b4d2fc29d0c0bcc5b9e3 61c28c2d271e75094236
+tag hit #d2685fa13696eae7db0f 61c28c2d271e75094236
+tag hit #8e9fc18900fd7a78a2d1 3ddf96f836812b6c599d
+tag hit #75d31a34e4a3c8e2170e 8e9fc18900fd7a78a2d1
+tag hit #8e9fc18900fd7a78a2d1 3ddf96f836812b6c599d
+tag hit #d2685fa13696eae7db0f 61c28c2d271e75094236
+tag hit #75d31a34e4a3c8e2170e 8e9fc18900fd7a78a2d1
+tag hit #cef71e917f46b85dcdc5 d2685fa13696eae7db0f
+tag hit #33d31e1535be3a7cf57c b4d2fc29d0c0bcc5b9e3
+tag hit #61c28c2d271e75094236 61c28c2d271e75094236
+tag hit #bc92e96068fbe66960de b4d2fc29d0c0bcc5b9e3
+tag hit #61c28c2d271e75094236 61c28c2d271e75094236
+tag hit #61c28c2d271e75094236 61c28c2d271e75094236
+tag hit #75d31a34e4a3c8e2170e 8e9fc18900fd7a78a2d1
+tag hit #d2685fa13696eae7db0f 61c28c2d271e75094236
+tag hit #2bd93b04442d10c772e8 3ddf96f836812b6c599d
+tag hit #8e9fc18900fd7a78a2d1 3ddf96f836812b6c599d
+tag hit #bc92e96068fbe66960de b4d2fc29d0c0bcc5b9e3
+tag hit #33d31e1535be3a7cf57c b4d2fc29d0c0bcc5b9e3
+tag hit #d2685fa13696eae7db0f 61c28c2d271e75094236
+tag hit #33d31e1535be3a7cf57c b4d2fc29d0c0bcc5b9e3
+tag hit #3ddf96f836812b6c599d d2685fa13696eae7db0f
+tag hit #bc92e96068fbe66960de b4d2fc29d0c0bcc5b9e3
+tag hit #cef71e917f46b85dcdc5 d2685fa13696eae7db0f
+list trending bottom 40
+```
+
+saída:
+```
+Begin 40% bottom trending
+10  #2bd93b04442d10c772e8 with 1 hits
+9   #cef71e917f46b85dcdc5 with 2 hits
+9   #b4d2fc29d0c0bcc5b9e3 with 2 hits
+9   #3ddf96f836812b6c599d with 2 hits
+End Trending
+```
+ - Note a primeira e última linha que representam o inicio de fim da
+   impressão do trending
+ - A ordem de impressão das tags é pela quantidade de hits (menor para
+   maior) e em caso de empate deve ser impresso em ordem lexicográfica
+   reversa
+ - Para cada tag do trending existirá uma linha, sendo:
+  - o primeiro campo a classificação da tag, tags com a mesma quantidade de
+    hits possuem a mesma classificação (e isso não influencia na contagem
+    dos XX% pedidos
+     - Os números da classificação devem ser impressos justificados a
+       esquerda com 3 campos (leia o manual do printf(3))
+  - o segundo campo é a tag seguido da palavra 'with' e em seguida a
+    quantidade de hits da tag, finalizado com a palavra hits
+
+
 ====dump tags====
+ - [/gif/new.gif] Atualizado 07/10 - novo padrão de saída
  - Atualizado 04/10 - impressão em ordem lexicográfica
 
  - Este comando indica que seu programa deverá imprimir todas as tags
@@ -170,13 +306,18 @@ dump tags
 ```
  - saída
 ```
+8<----------Begin Tag Dump----------
 #dia -> belo :: hits=2
 #flor -> belo :: hits=1
+8<----------End   Tag Dump----------
 ```
+ - Fique atendo com as linhas delimitadoras (copie e cole ela dentro do seu
+   printf)
 
 
 
 ====dump keys====
+ - [/gif/new.gif] Atualizado 07/10 - novo padrão de saída
  - Atualizado 04/10 - impressão em ordem lexicográfica
 
  - Este comando indica que seu programa deverá imprimir todas as keys
@@ -194,14 +335,19 @@ tag hit #dia belo
 tag hit #dia belo
 add key maluco: forever alone
 tag hit #chato orange
-dump tags
+dump keys
 ```
- - saída
+- saída
 ```
-belo content="um belo dia floresce" refs=3
-maluco content="foreve alone" refs=0
+8<----------Begin Key Dump----------
+belo content="um belo dia floresce" refs=2
+maluco content="forever alone" refs=0
 orange content="is the new black" refs=1
+8<----------End   Key Dump----------
+
 ```
+ - Fique atendo com as linhas delimitadoras (copie e cole ela dentro do seu
+   printf)
 
 
 
