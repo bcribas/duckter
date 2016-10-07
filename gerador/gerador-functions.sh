@@ -22,7 +22,7 @@ tagscount=0;
 
 function gerarandom()
 {
-  P=$((RANDOM%9+1))
+  local P=$((RANDOM%9+1))
   echo $P$RANDOM$RANDOM$RANDOM
 }
 
@@ -31,12 +31,13 @@ function addchaves()
   local QTD=$1
   local IT=$2
   local MAXFRASES=$3
+  local i=0
   if [[ "$MAXFRASES" == "" ]]; then
     MAXFRASES=5
   fi
   for((i=0;i<$QTD;i++)); do
-    CHAVE=$(printf "$IT-$(date +%s)$i"|md5sum | cut -b1-20|tr -d '\n')
-    PAIS=${PAISES[$(($RANDOM%$PAISESCT))]}
+    local CHAVE=$(printf "$IT-$(date +%s)$i"|md5sum | cut -b1-20|tr -d '\n')
+    local PAIS=${PAISES[$(($RANDOM%$PAISESCT))]}
     #echo "add key $CHAVE: $PAIS $(printf "$IT-$(date +%s)$i"|shasum)"
     echo "add key $CHAVE: $PAIS $(./lorem/lorem --poe -n $((RANDOM%MAXFRASES+5)) --randomize|tr -d '\n')"
     CHAVES[$chavescount]=$CHAVE
@@ -46,11 +47,12 @@ function addchaves()
 
 function gentags()
 {
-  QTD=$1
-  PRE=$2
+  local QTD=$1
+  local PRE=$2
+  local i=0
   for((i=0;i<$QTD;i++)); do
-    TAGNAME="$(printf "$PRE-$(date +%s)$i"|md5sum | cut -b1-20|tr -d '\n')"
-    TOKEY="${CHAVES[$(($(gerarandom)%${#CHAVES[@]}))]}"
+    local TAGNAME="$(printf "$PRE-$(date +%s)$i"|md5sum | cut -b1-20|tr -d '\n')"
+    local TOKEY="${CHAVES[$(($(gerarandom)%${#CHAVES[@]}))]}"
     #printf "tag hit #$TAGNAME $TOKEY\n"
     TAGS[$tagscount]="#$TAGNAME"
     TAGSREF["#$TAGNAME"]="$TOKEY"
@@ -61,9 +63,10 @@ function gentags()
 function taghit()
 {
   local QTD=$1
+  local i=0
   for((i=0;i<$QTD;i++)); do
-    TAGNAME="${TAGS[$(($(gerarandom)%tagscount))]}"
-    TOKEY="${TAGSREF["$TAGNAME"]}"
+    local TAGNAME="${TAGS[$(($(gerarandom)%tagscount))]}"
+    local TOKEY="${TAGSREF["$TAGNAME"]}"
     HITEDTAGS["$TAGNAME"]="$TAGNAME"
     printf "tag hit $TAGNAME $TOKEY\n"
   done
