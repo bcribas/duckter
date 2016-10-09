@@ -6,7 +6,10 @@ BINARIOS=simples.O0\
 				 ssimples.O2\
 				 ssimples.O3\
 				 ssimplesDP.O3\
-				 simplesDP.O3
+				 simplesDP.O3\
+				 ribastree.O3\
+				 ribastree.O0\
+				 ribastree.O2
 
 TESTES=$(wildcard ../samples/*.in)
 RESULTADOSTESTES=$(patsubst ../samples/%.in,%.result,$(TESTES))
@@ -27,6 +30,9 @@ simplesDP.O%: ribas-fair.cpp
 
 simples.O%: ribas-fair.cpp
 	g++ -O$(subst simples.O,,$@) $^ -o $@
+
+ribastree.O%: ribastree.cpp
+	g++ -O$(subst ribastree.O,,$@) $^ -o $@
 
 all-samples.result: $(RESULTADOSTESTES)
 	cat $(RESULTADOSTESTES) |tee all-samples.result
