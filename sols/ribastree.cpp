@@ -32,7 +32,7 @@ public:
     if(a.ref > b.ref) ret=-1;
     else if(a.ref < b.ref) ret=1;
     else ret=(strcmp(a.id,b.id));
-    return ret < 0;
+    return ret<0;
   }
 };
 
@@ -201,7 +201,7 @@ else
     p=(p*tags.size())/100;
     topk(v,0,tags.size()-1,tags.size()-p,comparaHL);
     int i;
-    sort(&v[p],&v[tags.size()],comparaHLb());
+    sort(&v[0],&v[tags.size()],comparaHLb());
     int pos=tags.size();
     int lasthitcount=v[tags.size()-1].ref;
     printf("%-3d %s with %d hits\n",pos,v[tags.size()-1].id,v[tags.size()-1].ref);
