@@ -1,6 +1,5 @@
 lorem
 gerasimples.sh
-samples/*.in
 sols/*.result
 sols/*.O0
 sols/*.O2
