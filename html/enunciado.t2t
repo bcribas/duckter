@@ -141,7 +141,7 @@ belo :. um belo dia floresce
 
 
 ====list trending top XX====
- - [/gif/new.gif] Atualizado 07/10 - formato de saída definido
+ - Atualizado 07/10 - formato de saída definido
 
  - Calcula as XX% tags com mais hits do dia
  - XX é a porcentagem.
@@ -212,7 +212,7 @@ End Trending
 
 
 ====list trending bottom XX====
- - [/gif/new.gif] Atualizado 07/10 - formato de saída definido
+ - Atualizado 07/10 - formato de saída definido
 
  - Calcula as XX% tags com menos hits do dia
  - XX é a porcentagem.
@@ -286,7 +286,7 @@ End Trending
 
 
 ====dump tags====
- - [/gif/new.gif] Atualizado 07/10 - novo padrão de saída
+ - Atualizado 07/10 - novo padrão de saída
  - Atualizado 04/10 - impressão em ordem lexicográfica
 
  - Este comando indica que seu programa deverá imprimir todas as tags
@@ -317,7 +317,7 @@ dump tags
 
 
 ====dump keys====
- - [/gif/new.gif] Atualizado 07/10 - novo padrão de saída
+ - Atualizado 07/10 - novo padrão de saída
  - Atualizado 04/10 - impressão em ordem lexicográfica
 
  - Este comando indica que seu programa deverá imprimir todas as keys
@@ -423,6 +423,9 @@ rm orphankey
 
 
 =Ranking=
+ - [/gif/new.gif] Atualizado - 10/10
+
+
 
 O ranking será feito por disputas diárias. Para participar basta enviar o
 código que o sistema compilará e executará.
@@ -435,9 +438,33 @@ A submissão para o Rank é **Obrigatória**.
 
 No Rank a ordenação será considerada pelo SCORE, definido como:
 ```
-Latencia*10 + Memória Usada em Bytes
+(Tempo de Execução em segundos)*100 + (Memória Usada em MegaBytes)
 ```
  - Quanto menor, melhor.
+
+
+ - A submissão para o sistema de rank iniciará ao menos 2 semanas antes da
+   entrega do trabalho;
+ - As submissões **não** serão executadas imediatamente. O sistema fará
+   algumas execuções diárias. A quantidade de submissões será definida no
+   momento da abertura das submissões;
+
+
+
+
+
+=Exemplos de Entrada=
+ - [/gif/new.gif] Criado - 10/10
+
+ - [01-sample1-verysmall.in samples/01-sample1-verysmall.in]
+ - [02-sample2-verysmall.in samples/02-sample2-verysmall.in]
+ - [03-sample3-small.in samples/03-sample3-small.in]
+ - [04-sample4-smallstress.in samples/04-sample4-smallstress.in]
+ - [05-sample5-hugeforasample.in samples/05-sample5-hugeforasample.in]
+ - [06-sample6-crazytrending.in samples/06-sample6-crazytrending.in]
+ - [07-sample7-crazytrending2.in samples/07-sample7-crazytrending2.in]
+
+
 
 
 
