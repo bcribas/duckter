@@ -66,6 +66,7 @@ int separa(tk_st *v, int p, int r, int( *compare)(const tk_st*,const tk_st*))
   tk_st t;
   tk_st tc;
 #ifndef __DUMBPIVOT
+#ifndef __RPIVOT
   int a,b,c;
   a=lrand48()%(r-p)+p;
   b=lrand48()%(r-p)+p;
@@ -79,6 +80,10 @@ int separa(tk_st *v, int p, int r, int( *compare)(const tk_st*,const tk_st*))
 
   if(compare(&v[a],&v[b])>0)
     x=a,a=b,b=x;
+#else
+  int b;
+  b=lrand48()%(r-p)+p;
+#endif
 
   t=v[b];
   v[b]=v[p];
