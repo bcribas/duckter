@@ -8,8 +8,13 @@ using namespace std;
 
 struct tk_st
 {
+#ifndef __SUPERSIMPLES
   char *id;
   char *txt;
+#else
+  char id[1001];
+  char txt[1001];
+#endif
   int ref;
 };
 
@@ -174,8 +179,15 @@ void addcmd(char *cmd, ct_st *keys, ct_st *tags)
     struct tk_st t;
     scanf(" %ms %m[^\n]", &chave,&content);
     chave[strlen(chave)-1]=0;
+#ifndef __SUPERSIMPLES
     t.id=chave;
     t.txt=content;
+#else
+    strcpy(t.id,chave);
+    strcpy(t.txt,content);
+    free(chave);
+    free(content);
+#endif
     t.ref=0;
     checkandresize((*keys), tk_st);
     keys->v[keys->count++]=t;
@@ -186,7 +198,12 @@ void addcmd(char *cmd, ct_st *keys, ct_st *tags)
     char *tag,*point;
     struct tk_st n;
     scanf(" %ms %m[^\n]", &tag,&point);
+#ifndef __SUPERSIMPLES
     n.id=tag;
+#else
+    strcpy(n.id,tag);
+#endif
+
 #ifndef __SUPERSIMPLES
     if(tags->lastsort!=lex)
 #endif
@@ -197,8 +214,15 @@ void addcmd(char *cmd, ct_st *keys, ct_st *tags)
     if(b==-1)
     {
       n.ref=1;
+      struct tk_st t;
+#ifndef __SUPERSIMPLES
       n.txt=point;
-      struct tk_st t; t.id=point;
+      t.id=point;
+#else
+      strcpy(n.txt,point);
+      strcpy(t.id,point);
+#endif
+
 #ifndef __SUPERSIMPLES
       if(keys->lastsort!=lex)
 #endif
@@ -208,6 +232,10 @@ void addcmd(char *cmd, ct_st *keys, ct_st *tags)
       checkandresize((*tags),tk_st);
       tags->v[tags->count++]=n;
       tags->lastsort=none;
+#ifdef __SUPERSIMPLES
+      free(point);
+      free(tag);
+#endif
     }
     else
     {
@@ -274,9 +302,11 @@ void showtagcontent(ct_st *keys,ct_st *tags)
   char *buf;
   scanf(" %ms",&buf);
   tk_st n;
-  n.id=buf;
 #ifndef __SUPERSIMPLES
+  n.id=buf;
   if(tags->lastsort!=lex)
+#else
+  strcpy(n.id,buf);
 #endif
     ordena(tags->v,0,tags->count-1,comparal);
   tags->lastsort=lex;
@@ -287,7 +317,11 @@ void showtagcontent(ct_st *keys,ct_st *tags)
     exit(1);
   }
   printf("%s -> %s\n",buf,tags->v[b].txt);
+#ifndef __SUPERSIMPLES
   n.id=tags->v[b].txt;
+#else
+  strcpy(n.id,tags->v[b].txt);
+#endif
   b=busca(keys->v,0,keys->count-1,&n,comparal);
   printf("%s :. %s\n",keys->v[b].id,keys->v[b].txt);
   free(buf);
