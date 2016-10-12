@@ -7,32 +7,43 @@ BINARIOS=simples.O0\
 				 ssimples.O3\
 				 ssimplesDP.O3\
 				 simplesDP.O3\
+				 ssimplesRP.O3\
+				 simplesRP.O3\
 				 ribastree.O3\
 				 ribastree.O0\
 				 ribastree.O2
 
 TESTES=$(wildcard ../samples/*.in)
-RESULTADOSTESTES=$(patsubst ../samples/%.in,%.result,$(TESTES))
+RESULTADOSTESTES=$(sort $(patsubst ../samples/%.in,%.result,$(TESTES)))
+
+CFLAGS=-static
+CXXFLAGS=$(CFLAGS)
 
 all: $(BINARIOS)
 	@echo "Voce pode rodar os experimentos com o comando:"
 	@echo "  $ cd ../samples && make"
 	@echo "  $ make run-samples"
 
+simples.O%: ribas-fair.cpp
+	g++ $(CXXFLAGS) -$(subst .,,$(suffix $@)) $^ -o $@
+
 ssimples.O%: ribas-fair.cpp
-	g++ -D__SUPERSIMPLES -O$(subst ssimples.O,,$@) $^ -o $@
+	g++ $(CXXFLAGS) -D__SUPERSIMPLES -$(subst .,,$(suffix $@)) $^ -o $@
 
 ssimplesDP.O%: ribas-fair.cpp
-	g++ -D__SUPERSIMPLES -D__DUMBPIVOT -O$(subst ssimplesDP.O,,$@) $^ -o $@
+	g++ $(CXXFLAGS) -D__SUPERSIMPLES -D__DUMBPIVOT -$(subst .,,$(suffix $@)) $^ -o $@
+
+ssimplesRP.O%: ribas-fair.cpp
+	g++ $(CXXFLAGS) -D__SUPERSIMPLES -D__RPIVOT -$(subst .,,$(suffix $@)) $^ -o $@
+
+simplesRP.O%: ribas-fair.cpp
+	g++ $(CXXFLAGS) -D__RPIVOT -$(subst .,,$(suffix $@)) $^ -o $@
 
 simplesDP.O%: ribas-fair.cpp
-	g++ -D__DUMBPIVOT -O$(subst simplesDP.O,,$@) $^ -o $@
-
-simples.O%: ribas-fair.cpp
-	g++ -O$(subst simples.O,,$@) $^ -o $@
+	g++ $(CXXFLAGS) -D__DUMBPIVOT -$(subst .,,$(suffix $@)) $^ -o $@
 
 ribastree.O%: ribastree.cpp
-	g++ -O$(subst ribastree.O,,$@) $^ -o $@
+	g++ $(CXXFLAGS) -$(subst .,,$(suffix $@)) $^ -o $@
 
 all-samples.result: $(RESULTADOSTESTES)
 	cat $(RESULTADOSTESTES) |tee all-samples.result
@@ -43,6 +54,7 @@ run-samples: /usr/bin/time run-tests $(BINARIOS) $(RESULTADOSTESTES) all-samples
 	@printf "Generating $@"
 	@bash ./run-tests $^ > $@
 	@echo .
+	@cat $@
 
 
 clean:
