@@ -59,6 +59,8 @@ int comparaHL(const tk_st *a, const tk_st *b)
   else return (strcmp(a->id,b->id));
 }
 
+#define trocatk_st(a,b) { tk_st xtt=a; a=b,b=xtt; }
+
 int separa(tk_st *v, int p, int r, int( *compare)(const tk_st*,const tk_st*))
 {
 
@@ -68,18 +70,18 @@ int separa(tk_st *v, int p, int r, int( *compare)(const tk_st*,const tk_st*))
 #ifndef __DUMBPIVOT
 #ifndef __RPIVOT
   int a,b,c;
-  a=lrand48()%(r-p)+p;
-  b=lrand48()%(r-p)+p;
-  c=lrand48()%(r-p)+p;
+  a=p;
+  b=(p+r)/2;
+  c=r;
   int x;
   if(compare(&v[a],&v[b])>0)
-    x=a,a=b,b=x;
+    trocatk_st(v[a],v[b]);
 
   if(compare(&v[b],&v[c])>0)
-    x=b,b=c,c=x;
+    trocatk_st(v[b],v[c]);
 
   if(compare(&v[a],&v[b])>0)
-    x=a,a=b,b=x;
+    trocatk_st(v[a],v[b]);
 #else
   int b;
   b=lrand48()%(r-p)+p;
