@@ -39,7 +39,7 @@ function addchaves()
     local CHAVE=$(printf "$IT-$(date +%s)$i"|md5sum | cut -b1-20|tr -d '\n')
     local PAIS=${PAISES[$(($RANDOM%$PAISESCT))]}
     #echo "add key $CHAVE: $PAIS $(printf "$IT-$(date +%s)$i"|shasum)"
-    echo "add key $CHAVE: $PAIS $(./lorem/lorem --poe -n $((RANDOM%MAXFRASES+5)) --randomize|tr -d '\n')"
+    echo "add key $CHAVE: $PAIS $(./lorem/lorem --foo -n $((RANDOM%MAXFRASES+5)) --randomize|tr -d '\n'|cut -b1-995)"
     CHAVES[$chavescount]=$CHAVE
     ((chavescount++))
   done
