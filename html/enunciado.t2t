@@ -423,7 +423,9 @@ rm orphankey
 
 
 =Ranking=
- - [/gif/new.gif] Atualizado - 10/10
+ - [/gif/new.gif] Nova conta de cálculo do score 15/10
+  - e também como compilar e calcular o score
+ - Atualizado - 10/10
 
 
 
@@ -438,7 +440,7 @@ A submissão para o Rank é **Obrigatória**.
 
 No Rank a ordenação será considerada pelo SCORE, definido como:
 ```
-(Tempo de Execução em segundos)*100 + (Memória Usada em MegaBytes)
+((Tempo de Execução em segundos)*100 + (Memória Usada em MegaBytes)*10)/110
 ```
  - Quanto menor, melhor.
 
@@ -452,9 +454,44 @@ No Rank a ordenação será considerada pelo SCORE, definido como:
 
 
 
+==Compilando o meu programa==
+
+Para a execução dos testes as soluções serão compiladas com as seguintes
+FLAGS:
+```
+-static -O2
+```
+
+Exemplo:
+```
+gcc -static -O2 simples.c -o simples
+```
+
+
+==Calculando o Score do meu programa==
+
+Para calcular o score do seu programa instale o pacote "time" (nas máquinas
+do DAInf ele já está instalado), e execute o seu programa da seguinte forma:
+```
+/usr/bin/time -f "%M %e" ./meuprograma < arquivo-de-entrada > resposta-do-meuprograma
+```
+
+Exemplo:
+```
+$ /usr/bin/time -f "%M %e" ./simples < 05-sample5-hugeforasample.in > 05-sample5-hugeforasample.sol
+2520 1.64
+```
+
+O primeiro número que saiu impresso é a quantidade de memória em KBytes e o
+segundo número é o tempo em segundos. Logo o score para esse exemplo é:
+```
+(1.64*100 + (2520/1024)*10)/110 = 1.71
+```
+
 
 =Exemplos de Entrada=
- - [/gif/new.gif] Criado - 10/10
+ - [/gif/new.gif] Entradas de 03 a 07 atualizadas
+ - Criado - 10/10
 
  - [01-sample1-verysmall.in samples/01-sample1-verysmall.in]
  - [02-sample2-verysmall.in samples/02-sample2-verysmall.in]
