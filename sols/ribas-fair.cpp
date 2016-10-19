@@ -261,7 +261,7 @@ void trending(ct_st *tags)
   //printf("-->aqui %d %d\n",p,tags->count);
   //printf("-->aqui\n");
   tags->lastsort=tren;
-  if(!strcmp(where,"top"))
+  if(!strcmp(where,"top") && p>0)
   {
     p=(p*tags->count)/100;
     topk(tags->v,0,tags->count-1,p,comparaHL);
@@ -280,7 +280,7 @@ void trending(ct_st *tags)
       printf("%-3d %s with %d hits\n",pos,tags->v[i].id,tags->v[i].ref);
     }
   }
-  else
+  else if(p>0)
   {
     p=(p*tags->count)/100;
     topk(tags->v,0,tags->count-1,tags->count-p,comparaHL);
