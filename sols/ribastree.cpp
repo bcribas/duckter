@@ -168,7 +168,7 @@ int topk(tk_st *v, int p, int r,int k, int( *compare)(const tk_st*,const tk_st*)
 void trending(auto &tags)
 {
   char *where; int p;
-  tk_st *v=(tk_st*)malloc(sizeof(tk_st)*tags.size());
+  tk_st *v=(tk_st*)malloc(sizeof(tk_st)*(tags.size()+2));
   int i=0;
   for(auto it=tags.begin();it!=tags.end();it++,i++)
   {
@@ -177,12 +177,12 @@ void trending(auto &tags)
   }
   scanf(" %ms %d",&where,&p);
   printf("Begin %d%% %s trending\n",p,where);
-  if(!strcmp(where,"top"))
+  if(!strcmp(where,"top") && p>0)
   {
-    p=(p*tags.size())/100;
+    p=(p*(int)tags.size())/100;
     topk(v,0,tags.size()-1,p,comparaHL);
     int i;
-    sort(&v[0],&v[p+1],comparaHLb());
+    sort(&v[0],&v[p],comparaHLb());
     int pos=1;
     int lasthitcount=v[0].ref;
     printf("%-3d %s with %d hits\n",1,v[0].id,v[0].ref);
@@ -196,7 +196,7 @@ void trending(auto &tags)
       printf("%-3d %s with %d hits\n",pos,v[i].id,v[i].ref);
     }
   }
-else
+  else if(p>0)
   {
     p=(p*tags.size())/100;
     topk(v,0,tags.size()-1,tags.size()-p,comparaHL);
@@ -205,7 +205,7 @@ else
     int pos=tags.size();
     int lasthitcount=v[tags.size()-1].ref;
     printf("%-3d %s with %d hits\n",pos,v[tags.size()-1].id,v[tags.size()-1].ref);
-    for(i=tags.size()-2;i>=tags.size()-p;i--)
+    for(i=tags.size()-2;i>=tags.size()-(unsigned int)p && i>=0;i--)
     {
       if(v[i].ref!=lasthitcount)
       {
