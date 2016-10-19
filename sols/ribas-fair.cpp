@@ -285,7 +285,7 @@ void trending(ct_st *tags)
     p=(p*tags->count)/100;
     topk(tags->v,0,tags->count-1,tags->count-p,comparaHL);
     int i;
-    ordena(tags->v,p,tags->count-1,comparaHL);
+    ordena(tags->v,tags->count-p,tags->count-1,comparaHL);
     int pos=tags->count;
     int lasthitcount=tags->v[tags->count-1].ref;
     printf("%-3d %s with %d hits\n",pos,tags->v[tags->count-1].id,tags->v[tags->count-1].ref);
