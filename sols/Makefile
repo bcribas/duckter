@@ -11,7 +11,8 @@ BINARIOS=simples.O0\
 				 simplesRP.O3\
 				 ribastree.O3\
 				 ribastree.O0\
-				 ribastree.O2
+				 ribastree.O2\
+				 cpastro-first.e
 
 TESTES=$(wildcard ../samples/*.in)
 RESULTADOSTESTES=$(sort $(patsubst ../samples/%.in,%.result,$(TESTES)))
@@ -23,6 +24,9 @@ all: $(BINARIOS)
 	@echo "Voce pode rodar os experimentos com o comando:"
 	@echo "  $ cd ../samples && make"
 	@echo "  $ make run-samples"
+
+%.e:
+	gcc $(CFLAGS) -O2 $(subst .e,.c,$@) -o $@
 
 simples.O%: ribas-fair.cpp
 	g++ $(CXXFLAGS) -$(subst .,,$(suffix $@)) $^ -o $@
