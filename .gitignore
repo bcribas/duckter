@@ -4,4 +4,5 @@ sols/*.result
 sols/*.O0
 sols/*.O2
 sols/*.O3
+sols/*.e
 run-tests
