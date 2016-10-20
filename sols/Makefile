@@ -7,6 +7,10 @@ BINARIOS=simples.O0\
 				 ssimples.O3\
 				 ssimplesDP.O3\
 				 simplesDP.O3\
+				 ssimplesDT.O2\
+				 simplesDT.O2\
+				 ssimplesDT.O0\
+				 simplesDT.O0\
 				 ssimplesRP.O3\
 				 simplesRP.O3\
 				 ribastree.O3\
@@ -37,6 +41,9 @@ ssimples.O%: ribas-fair.cpp
 ssimplesDP.O%: ribas-fair.cpp
 	g++ $(CXXFLAGS) -D__SUPERSIMPLES -D__DUMBPIVOT -$(subst .,,$(suffix $@)) $^ -o $@
 
+ssimplesDT.O%: ribas-fair.cpp
+	g++ $(CXXFLAGS) -D__SUPERSIMPLES -D__DUMBTRENDING -$(subst .,,$(suffix $@)) $^ -o $@
+
 ssimplesRP.O%: ribas-fair.cpp
 	g++ $(CXXFLAGS) -D__SUPERSIMPLES -D__RPIVOT -$(subst .,,$(suffix $@)) $^ -o $@
 
@@ -45,6 +52,9 @@ simplesRP.O%: ribas-fair.cpp
 
 simplesDP.O%: ribas-fair.cpp
 	g++ $(CXXFLAGS) -D__DUMBPIVOT -$(subst .,,$(suffix $@)) $^ -o $@
+
+simplesDT.O%: ribas-fair.cpp
+	g++ $(CXXFLAGS) -D__DUMBTRENDING -$(subst .,,$(suffix $@)) $^ -o $@
 
 ribastree.O%: ribastree.cpp
 	g++ $(CXXFLAGS) -$(subst .,,$(suffix $@)) $^ -o $@
