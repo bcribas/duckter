@@ -7,7 +7,7 @@ TMPFILE=$(mktemp)
 echo "--> $sample"
 printf "| %-15s | %10s | %7s | %10s | %-32s |\n" "Executavel" "Tam. MB" \
         "Tempo" "Score" "MD5 da Saida"
-for O in O0 O2 O3; do
+for O in e O0 O2 O3; do
   for bin in *.$O; do
     #if grep -q ssimples <<< "$bin"; then continue; fi
     /usr/bin/time -f "%M %e" ./$bin < $sample > $TMPFILE.sol 2> $TMPFILE.tempo
