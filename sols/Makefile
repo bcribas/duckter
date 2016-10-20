@@ -57,7 +57,7 @@ simplesDT.O%: ribas-fair.cpp
 	g++ $(CXXFLAGS) -D__DUMBTRENDING -$(subst .,,$(suffix $@)) $^ -o $@
 
 ribastree.O%: ribastree.cpp
-	g++ $(CXXFLAGS) -$(subst .,,$(suffix $@)) $^ -o $@
+	g++ -std=c++14 $(CXXFLAGS) -$(subst .,,$(suffix $@)) $^ -o $@
 
 all-samples.result: $(RESULTADOSTESTES)
 	cat $(RESULTADOSTESTES) |tee all-samples.result
