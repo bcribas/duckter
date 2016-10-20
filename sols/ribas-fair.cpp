@@ -264,9 +264,13 @@ void trending(ct_st *tags)
   if(!strcmp(where,"top") && p>0)
   {
     p=(p*tags->count)/100;
-    topk(tags->v,0,tags->count-1,p,comparaHL);
     int i;
+#ifndef __DUMBTRENDING
+    topk(tags->v,0,tags->count-1,p,comparaHL);
     ordena(tags->v,0,p,comparaHL);
+#else
+    ordena(tags->v,0,tags->count-1,comparaHL);
+#endif
     int pos=1;
     int lasthitcount=tags->v[0].ref;
     printf("%-3d %s with %d hits\n",1,tags->v[0].id,tags->v[0].ref);
@@ -283,9 +287,13 @@ void trending(ct_st *tags)
   else if(p>0)
   {
     p=(p*tags->count)/100;
-    topk(tags->v,0,tags->count-1,tags->count-p,comparaHL);
     int i;
+#ifndef __DUMBTRENDING
+    topk(tags->v,0,tags->count-1,tags->count-p,comparaHL);
     ordena(tags->v,tags->count-p,tags->count-1,comparaHL);
+#else
+    ordena(tags->v,0,tags->count-1,comparaHL);
+#endif
     int pos=tags->count;
     int lasthitcount=tags->v[tags->count-1].ref;
     printf("%-3d %s with %d hits\n",pos,tags->v[tags->count-1].id,tags->v[tags->count-1].ref);
