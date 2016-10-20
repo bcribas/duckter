@@ -1,20 +1,18 @@
 
 BINARIOS=simples.O0\
 				 simples.O2\
-				 simples.O3\
 				 ssimples.O0\
 				 ssimples.O2\
-				 ssimples.O3\
 				 ssimplesDP.O3\
 				 simplesDP.O3\
 				 ssimplesDT.O2\
 				 simplesDT.O2\
 				 ssimplesDT.O0\
 				 simplesDT.O0\
-				 ssimplesRP.O3\
-				 simplesRP.O3\
-				 ribastree.O3\
-				 ribastree.O0\
+				 ssimplesRP.O2\
+				 simplesRP.O2\
+				 ssimplesRP.O0\
+				 simplesRP.O0\
 				 ribastree.O2\
 				 cpastro-first.e
 
