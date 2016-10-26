@@ -51,7 +51,7 @@ echo "  Timelimit = $SOSEGUNDOS"
 printf "| %-15s | %10s | %7s | %10s | %-32s |\n" "Executavel" "Tam. MB" \
         "Tempo" "Score" "MD5 da Saida"
 
-for O in e O0 O2 O3; do
+for O in e epp O0 O2 O3; do
   for bin in *.$O; do
     if [[ "$bin" == "ssimples.O0" ]]; then
       geralinha $SSIMPLES "Super Simples"
