@@ -14,8 +14,8 @@ Trocado o quicksort por uma implementação própria
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define INTAM 1000 /*tamanho inicial do vetor*/
-#define REALLOCTAM 500 /*tamanho em que se deve aumentar na realloc*/
+#define INTAM 200 /*tamanho inicial do vetor*/
+#define REALLOCTAM 100 /*tamanho em que se deve aumentar na realloc*/
 #define CONSTORD 0.2 /*limiar de ordenação*/
 
 char **vauxr=NULL;
