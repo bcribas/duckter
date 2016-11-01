@@ -5,4 +5,5 @@ sols/*.O0
 sols/*.O2
 sols/*.O3
 sols/*.e
+sols/*.epp
 run-tests

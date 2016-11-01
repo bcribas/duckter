@@ -13,26 +13,57 @@ function executa()
   echo $TEMPLATE
 }
 
+function verificaresposta()
+{
+  local SOL=$1
+  local GABARITO=$2
+  local RESP=Accepted
+  if diff $GABARITO $SOL &>/dev/null; then
+    RESP="Aceito"
+  elif diff -bB $GABARITO $SOL &>/dev/null; then
+    RESP="Erro de Apresentação"
+  else
+    RESP="Resposta Errada"
+  fi
+  echo $RESP
+  return
+}
+
 function geralinha()
 {
   local TEMPLATE=$1
   local NOME=$2
+
+  read MEMORIA TEMPO <<< "$(tail -n1 $TEMPLATE.tempo)"
+
+  local MEMORIAMEGA=$(echo "scale=2;$MEMORIA/1024"|bc -l)
+
+  local STATUS="$(verificaresposta $TEMPLATE.sol $SSIMPLES.sol)"
+
   if ! wc -l ${TEMPLATE}.tempo|grep -q '^1 '; then
-    printf "| %-15s | %10s | %7s | %10s | %-32s |\n" "$NOME"\
-            "- -" "- -" "- -" "$(head -n1 $TEMPLATE.tempo)"
+    STATUS="$(head -n1 $TEMPLATE.tempo)"
+    if echo "$TEMPO > $TL"| bc|grep -q '^1'; then
+      STATUS="Tempo Limite de Execução Excedido"
+      TEMPO="TLE"
+    fi
+    printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
+            "- -" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
     return
   fi
 
-  read MEMORIA TEMPO < $TEMPLATE.tempo
-  MEMORIAMEGA=$(echo "scale=2;$MEMORIA/1024"|bc -l)
+  if [[ "$STATUS" != "Aceito" ]]; then
+    printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
+            "- -" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
+    return
+  fi
 
-  SCORE=$(echo "scale=2;($MEMORIAMEGA*10+100*$TEMPO)/110"|bc -l)
-  MD5="$(md5sum $TEMPLATE.sol|awk '{print $1}')"
-  printf "| %-15s | %10s | %7s | %10s | $MD5 |\n" "$NOME"\
-          "$MEMORIAMEGA MB" "$TEMPO" "$SCORE"
+  local SCORE=$(echo "scale=2;($MEMORIAMEGA*10+100*$TEMPO)/110"|bc -l)
+  local MD5="$(md5sum $TEMPLATE.sol|awk '{print $1}')"
+  printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
+          "$MEMORIAMEGA MB" "$TEMPO" "$SCORE" "$MD5"
 }
 
-echo "--> $sample"
+echo "=$(basename $sample)="
 
 #Calibra tempo com ssimples.O0
 SSIMPLES=$(executa $INPUT ssimples.O0)
@@ -44,11 +75,13 @@ fi
 read SSIMPLESMEM SSIMPLESTEMPO < $SSIMPLES.tempo
 SOSEGUNDOS="$(cut -d'.' -f1 <<< "$SSIMPLESTEMPO")"
 ((SOSEGUNDOS+=60))
-((SOSEGUNDOS*=2))
-ulimit -t $SOSEGUNDOS
-echo "  Timelimit = $SOSEGUNDOS"
+((SOSEGUNDOS+=SOSEGUNDOS/2))
+TL=$SOSEGUNDOS
+ulimit -t $((SOSEGUNDOS+30))
+echo "- Timelimit = $TL"
+echo "- Corretos:"
 
-printf "| %-15s | %10s | %7s | %10s | %-32s |\n" "Executavel" "Tam. MB" \
+printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "Executavel" "Tam. MB" \
         "Tempo" "Score" "MD5 da Saida"
 
 for O in e epp O0 O2 O3; do
@@ -62,5 +95,8 @@ for O in e epp O0 O2 O3; do
   done
 done | sort -t'|' -k2 | sort -s -n -t'|' -k5
 echo
+echo
+echo "- Errados"
+cat ${TMPFILE}.errados
 
 rm ${TMPFILE}*

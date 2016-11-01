@@ -14,8 +14,9 @@ BINARIOS=simples.O0\
 				 ssimplesRP.O0\
 				 simplesRP.O0\
 				 ribastree.O2\
-				 marcustree.epp\
-				 cpastro-first.e
+				 marcustree.epp
+
+BINARIOSE=$(patsubst %.c,%.e,$(wildcard *.c))
 
 TESTES=$(wildcard ../samples/*.in)
 RESULTADOSTESTES=$(sort $(patsubst ../samples/%.in,%.result,$(TESTES)))
@@ -23,7 +24,7 @@ RESULTADOSTESTES=$(sort $(patsubst ../samples/%.in,%.result,$(TESTES)))
 CFLAGS=-static
 CXXFLAGS=$(CFLAGS)
 
-all: $(BINARIOS)
+all: $(BINARIOS) $(BINARIOSE)
 	@echo "Voce pode rodar os experimentos com o comando:"
 	@echo "  $ cd ../samples && make"
 	@echo "  $ make run-samples"
@@ -31,8 +32,8 @@ all: $(BINARIOS)
 %.epp:
 	g++ $(CFLAGS) -O2 $(subst .epp,.cpp,$@) -o $@
 
-%.e:
-	gcc $(CFLAGS) -O2 $(subst .e,.c,$@) -o $@
+%.e: %.c
+	gcc $(CFLAGS) -O2 $^ -o $@
 
 simples.O%: ribas-fair.cpp
 	g++ $(CXXFLAGS) -$(subst .,,$(suffix $@)) $^ -o $@
@@ -74,6 +75,6 @@ run-samples: /usr/bin/time run-tests $(BINARIOS) $(RESULTADOSTESTES) all-samples
 
 
 clean:
-	rm -f $(BINARIOS)
+	rm -f $(BINARIOS) $(BINARIOSE)
 	rm -f $(RESULTADOSTESTES)
 	rm -rf run-tests
