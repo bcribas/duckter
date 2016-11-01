@@ -14,6 +14,7 @@ BINARIOS=simples.O0\
 				 ssimplesRP.O0\
 				 simplesRP.O0\
 				 ribastree.O2\
+				 marcustree.epp\
 				 cpastro-first.e
 
 TESTES=$(wildcard ../samples/*.in)
@@ -26,6 +27,9 @@ all: $(BINARIOS)
 	@echo "Voce pode rodar os experimentos com o comando:"
 	@echo "  $ cd ../samples && make"
 	@echo "  $ make run-samples"
+
+%.epp:
+	g++ $(CFLAGS) -O2 $(subst .epp,.cpp,$@) -o $@
 
 %.e:
 	gcc $(CFLAGS) -O2 $(subst .e,.c,$@) -o $@
