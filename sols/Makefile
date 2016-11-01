@@ -75,6 +75,6 @@ run-samples: /usr/bin/time run-tests $(BINARIOS) $(RESULTADOSTESTES) all-samples
 
 
 clean:
-	rm -f $(BINARIOS)
+	rm -f $(BINARIOS) $(BINARIOSE)
 	rm -f $(RESULTADOSTESTES)
 	rm -rf run-tests
