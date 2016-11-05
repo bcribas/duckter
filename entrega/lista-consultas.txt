@@ -44,4 +44,9 @@ alltable
 
 Eta consulta mostra todas as tabelas disponíveis
 
+help
+----
+
+Mostra esta mensagem.
+
 EOF
