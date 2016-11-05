@@ -1,0 +1,14 @@
+add key 2016-11-05: Hoje Sat Nov  5 00:00:00 BRST 2016
+add key entrega-2016-11-05: Entrega com sucesso em 2016-11-05
+tag hit #2016-11-05 2016-11-05
+tag hit #187.109.100.36-2016-11-05 2016-11-05
+add key 67ee48730935bf6794b42d2f0554d515bc4593bb: 187.109.100.36 em Sat Nov  5 19:58:31 BRST 2016
+tag hit #67ee48730935bf6794b42d2f0554d515bc4593bb 67ee48730935bf6794b42d2f0554d515bc4593bb
+add key consulta: Pedido de relatorio
+add key consulta-2016-11-05: Relatorio 2016-11-05
+tag hit #67ee48730935bf6794b42d2f0554d515bc4593bb consulta
+tag hit #consulta-0187a43d consulta
+tag hit #consulta-2016-11-05-0187a43d consulta-2016-11-05
+add key ab0822e4c08fc3ee311433b9a4cf61c2: Consulta 'status' invalida
+tag hit #ERRO-67ee48730935bf6794b42d2f0554d515bc4593bb ab0822e4c08fc3ee311433b9a4cf61c2
+tag hit #ab0822e4c08fc3ee311433b9a4cf61c2 ab0822e4c08fc3ee311433b9a4cf61c2

@@ -1,0 +1,47 @@
+Gerando uma consulta:
+
+Crie um arquivo com o conteudo:
+```
+#define AUTHKEY "myauthkey"
+#define CONSULTA "minhaconsulta"
+```
+
+Substitua o 'myauthkey' pela sua chave de autenticação. Você encontra esta
+chave em seu email.
+
+Substitua 'minhaconsulta' pela consulta desejada.
+
+Observe que a 'myauthkey' e a 'minhaconsulta' devem ficar entre aspas.
+
+Exemplo:
+```
+#define AUTHKEY "ae22ff"
+#define CONSULTA "nextround"
+```
+
+Abaixo segue a lista de consultas disponíveis:
+
+status
+------
+
+Mostra o status do sistema. Algumas respostas possíveis são:
+ - IDLE - O sistema está recebendo submissões para o próximo round
+ - PROCESSING - O sistema está executando um novo round
+
+nextround
+---------
+
+Esta consulta mostra o horário em que a próxima execução das submissões será
+feita.
+
+currenttable
+------------
+
+Esta consulta mostra a tabela de classicação referente a última execução
+
+alltable
+--------
+
+Eta consulta mostra todas as tabelas disponíveis
+
+EOF

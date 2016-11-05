@@ -1,0 +1,1 @@
+tcpserver -D 0.0.0.0 65500 ./entregad.sh
