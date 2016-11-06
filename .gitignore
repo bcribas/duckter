@@ -7,3 +7,4 @@ sols/*.O3
 sols/*.e
 sols/*.epp
 run-tests
+corretor/exec/
