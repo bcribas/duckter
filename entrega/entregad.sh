@@ -51,7 +51,7 @@ function printprogresso()
 function lerarquivo()
 {
   local TEMP=$1
-  ulimit -f 1
+  ulimit -f 20
   timeout 3 cat - > $TEMP
   return $?
 }
@@ -136,6 +136,9 @@ fi
 GRUPO="$(grep ":$AUTHKEY:" passwd|cut -d':' -f3)"
 USERKEY="$(grep ":$AUTHKEY:" passwd|cut -d':' -f1)"
 
+addkey "$USERKEY" "$GRUPO"
+taghit "#dono-$CONEXAOID" "$USERKEY"
+
 if grep -q 'define CONSULTA' $ARQ; then
   addkey "consulta" "Pedido de relatorio"
   addkey "consulta-$HOJE" "Relatorio $HOJE"
@@ -177,7 +180,6 @@ if grep -q "processing" results/status.txt; then
   cancelar "O sistema esta processando um novo ROUND"
 fi
 
-addkey "$USERKEY" "$GRUPO"
 taghit "#$USERKEY-mais-submissoes" "$USERKEY"
 taghit "#$USERKEY-submit" "entrega"
 taghit "#$USERKEY-submit-$HOJE" "entrega-$HOJE"
