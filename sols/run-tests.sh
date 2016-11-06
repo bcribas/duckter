@@ -2,6 +2,7 @@
 
 INPUT=$1
 sample=$INPUT
+BASENAME="$(basename $sample)"
 TMPFILE=$(mktemp)
 
 function executa()
@@ -9,7 +10,27 @@ function executa()
   local ENTRADA=$1
   local BIN=$2
   local TEMPLATE=$TMPFILE-$BIN-$RANDOM
-  /usr/bin/time -f "%M %e" ./$BIN < $ENTRADA > $TEMPLATE.sol 2> $TEMPLATE.tempo
+
+  #verifica se ja existe execucao para esta entrada
+  if [[ -e ${BASENAME}.$BIN.sol ]]; then
+    if [[ "${BASENAME}.$BIN.sol" -nt "$BIN" ]]; then
+      TEMPLATE="${BASENAME}.$BIN"
+      echo $TEMPLATE
+      return
+    fi
+  fi
+
+  if [[ "$HOSTNAME" == "jaguapitanga" ]]; then
+    cp $BIN ~/.local/share/lxc/duckterrunner/rootfs/tmp/
+    lxc-attach -n duckterrunner -- /root/executa.sh /tmp/$BIN $TL < $ENTRADA > $TEMPLATE.sol 2> $TEMPLATE.tempo
+  else
+    echo "=== CUIDADO, AMBIENTE NAO SEGURO DE EXECUCAO ===" >&2
+    /usr/bin/time -f "%M %e" ./$BIN < $ENTRADA > $TEMPLATE.sol 2> $TEMPLATE.tempo
+  fi
+  for i in sol tempo; do
+    cp ${TEMPLATE}.$i ${BASENAME}.$BIN.$i
+  done
+
   echo $TEMPLATE
 }
 
@@ -32,7 +53,12 @@ function verificaresposta()
 function geralinha()
 {
   local TEMPLATE=$1
-  local NOME=$2
+  local BIN=$2
+  local NOME=$BIN
+  if [[ -e "../../entrega/passwd" ]]; then
+    local N="$(cut -d'.' -f1 <<< "$BIN")"
+    NOME="$(grep "^$N:" ../../entrega/passwd|cut -d':' -f3)"
+  fi
 
   read MEMORIA TEMPO <<< "$(tail -n1 $TEMPLATE.tempo)"
 
@@ -67,6 +93,7 @@ echo "=$(basename $sample)="
 
 #Calibra tempo com ssimples.O0
 SSIMPLES=$(executa $INPUT ssimples.O0)
+
 if ! wc -l ${SSIMPLES}.tempo|grep -q '^1 '; then
   echo "Ops. ssimples.O0 falhou"
   cat ${SSIMPLES}.tempo
@@ -86,8 +113,11 @@ printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "Executavel" "Tam. MB" \
 
 for O in e epp O0 O2 O3; do
   for bin in *.$O; do
+    if [[ ! -e "$bin" ]]; then
+      continue;
+    fi
     if [[ "$bin" == "ssimples.O0" ]]; then
-      geralinha $SSIMPLES "Super Simples"
+      geralinha $SSIMPLES $bin
       continue
     fi
     ARQ=$(executa $INPUT $bin)
@@ -97,6 +127,10 @@ done | sort -t'|' -k2 | sort -s -n -t'|' -k5
 echo
 echo
 echo "- Errados"
-cat ${TMPFILE}.errados
+if [[ ! -e "${TMPFILE}.errados" ]]; then
+  echo "ninguem aqui :)"
+else
+  cat ${TMPFILE}.errados
+fi
 
 rm ${TMPFILE}*
