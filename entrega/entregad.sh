@@ -197,8 +197,8 @@ slowstrprint "$STR" 0.01
 echo
 
 mkdir -p submissions submissions-history
-cp "$ARQ" submissions-history/"${AUTHKEY}-${INICIOCONEXAO}.c"
-cp $ARQ "submissions/${AUTHKEY}.c"
+cp "$ARQ" submissions-history/"${USERKEY}-${INICIOCONEXAO}.c"
+cp $ARQ "submissions/${USERKEY}.c"
 rm $ARQ
 
 exit 0
