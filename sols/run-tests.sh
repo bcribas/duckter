@@ -115,7 +115,7 @@ function geralinha()
   if [[ -e ${BASENAME}.$BIN.certos ]]; then
     cat ${BASENAME}.$BIN.certos >> ${TMPFILE}.certos
   fi
-  imprimelinha "$NOME" "$MEMORIAMEGA MB" "$TEMPO" "$SCORE" "Versao ANTERIOR"  > ${BASENAME}.$BIN.certos
+  imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "$SCORE" "Versao ANTERIOR"  > ${BASENAME}.$BIN.certos
 
 }
 
