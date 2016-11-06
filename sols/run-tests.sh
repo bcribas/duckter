@@ -90,10 +90,17 @@ function geralinha()
     return
   fi
 
+  if grep -q "simples" <<< "$BIN"; then
+    tput setab 7
+    tput setaf 0
+    tput bold
+  fi
+
   local SCORE=$(echo "scale=2;($MEMORIAMEGA*10+100*$TEMPO)/110"|bc -l)
   local MD5="$(md5sum $TEMPLATE.sol|awk '{print $1}')"
-  printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
+  printf "| %-35s | %10s | %7s | %10s | %-34s |$(tput sgr 0)\n" "$NOME"\
           "$MEMORIAMEGA MB" "$TEMPO" "$SCORE" "$MD5"
+
 }
 
 echo "=$(basename $sample)="
