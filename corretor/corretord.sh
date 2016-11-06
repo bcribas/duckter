@@ -1,5 +1,7 @@
 #!/bin/bash
 
+RUNS=0
+
 while true; do
   HOJE=$(date +"%Y-%m-%d")
   echo "Sincronizando Fontes"
@@ -14,6 +16,7 @@ while true; do
   make bin
 
   make hoje > tabelas/tabelas-$HOJE.t2t
+  printf "\n\n" >> tabelas/tabelas-$HOJE.t2t
 
   AGORA=$(date +%s)
 
@@ -32,11 +35,18 @@ while true; do
   if [[ "$(date --date="3 hours" +"%Y-%m-%d")" != "$HOJE" ]]; then
     NEXTROUND="$(date --date="tomorrow 00:00:00")"
     TOSLEEP=$(( $(date --date="tomorrow 00:00:00" +%s) - $AGORA +10))
+    RUNS=-1
+  fi
+
+  #RUNS=0 significa a primeira rodada do dia
+  if [[ "$RUNS" == "0" ]]; then
+    cat tabelas/*-2016.t2t > tabelas/tabelas-consolidadas.t2t
   fi
 
   echo "$NEXTROUND" > /tmp/nextround.txt
 
-  rsync -aHx /tmp/status.txt /tmp/nextround.txt tabelas/tabelas-$HOJE.t2t recebetrabalho@trinium.naquadah.com.br:entrega/results
+  rsync -aHx /tmp/status.txt /tmp/nextround.txt tabelas/*.t2t recebetrabalho@trinium.naquadah.com.br:entrega/results
 
   sleep $TOSLEEP
+  ((RUNS++))
 done
