@@ -156,9 +156,15 @@ if grep -q 'define CONSULTA' $ARQ; then
       cat results/nextround.txt
       ;;
     "currenttable")
+      if [[ ! -e "results/tabela-$HOJE.t2t" ]]; then
+        echo "NULL"
+      fi
       slowstrprint "$(< results/tabela-$HOJE.t2t)" 0.01
       ;;
     "alltable")
+      if [[ ! -e "results/tabelas-consolidadas.t2t" ]]; then
+        echo "NULL"
+      fi
       cat results/tabelas-consolidadas.t2t
       ;;
     "help")
