@@ -159,4 +159,6 @@ else
   cat ${TMPFILE}.errados
 fi
 
+echo "-- Gerado em $(date -R)"
+
 rm ${TMPFILE}*
