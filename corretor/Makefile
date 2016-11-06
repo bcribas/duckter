@@ -1,4 +1,4 @@
-ENTRADAS=2016-11-06.in
+ENTRADAS=entradas/2016-11-06.in
 
 GERADORES=$(patsubst %.in,%.sh,$(ENTRADAS))
 
@@ -7,7 +7,7 @@ BINARIOSA=$(patsubst %.c,%.e,$(wildcard exec/*.c))
 bin: gabaritos $(BINARIOSA)
 
 hoje: $(ENTRADAS) gabaritos $(BINARIOSA)
-	cd exec && bash ../../sols/run-tests.sh ../`date +"%Y-%m-%d"`.in
+	@cd exec && bash ../../sols/run-tests.sh ../entradas/`date +"%Y-%m-%d"`.in
 
 exec/ssimples.O0: ../sols/ribas-fair.cpp
 	cd ../sols && make ssimples.O0
