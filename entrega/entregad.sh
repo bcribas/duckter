@@ -180,6 +180,7 @@ if grep -q 'define CONSULTA' $ARQ; then
   addkey "$CONSULTA" "Consulta do tipo $CONSULTA"
   taghit "#$CONSULTA-$USERKEY" "$CONSULTA"
   taghit "#$CONSULTA" "$CONSULTA"
+  rm $ARQ
   exit 0
 fi
 
