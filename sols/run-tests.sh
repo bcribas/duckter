@@ -62,7 +62,7 @@ function geralinha()
 
   if [[ ! -e "$BIN" ]]; then
     STATUS="Erro de Compilacao"
-    printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
+    printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
             "- -" "- -" "- -" "$STATUS" >> ${TMPFILE}.errados
     return
   fi
@@ -79,20 +79,20 @@ function geralinha()
       STATUS="Tempo Limite de Execução Excedido"
       TEMPO="TLE"
     fi
-    printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
+    printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
             "- -" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
     return
   fi
 
   if [[ "$STATUS" != "Aceito" ]]; then
-    printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
+    printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
             "- -" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
     return
   fi
 
   local SCORE=$(echo "scale=2;($MEMORIAMEGA*10+100*$TEMPO)/110"|bc -l)
   local MD5="$(md5sum $TEMPLATE.sol|awk '{print $1}')"
-  printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
+  printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
           "$MEMORIAMEGA MB" "$TEMPO" "$SCORE" "$MD5"
 }
 
@@ -115,7 +115,7 @@ ulimit -t $((SOSEGUNDOS+30))
 echo "- Timelimit = $TL"
 echo "- Corretos:"
 
-printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "Executavel" "Tam. MB" \
+printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "Executavel" "Tam. MB" \
         "Tempo" "Score" "MD5 da Saida"
 
 for O in e epp O0 O2 O3; do
@@ -137,6 +137,9 @@ echo "- Errados"
 
 #procura por erros de compilacao
 for i in *.c; do
+  if [[ ! -e "$i" ]]; then
+    continue
+  fi
   BINSERIA=$(basename $i .c).e
   if [[ ! -e $BINSERIA ]]; then
     geralinha falso $BINSERIA
