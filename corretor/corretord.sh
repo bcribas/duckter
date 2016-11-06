@@ -47,6 +47,9 @@ while true; do
 
   rsync -aHx /tmp/status.txt /tmp/nextround.txt tabelas/*.t2t recebetrabalho@trinium.naquadah.com.br:entrega/results
 
+  echo '8<----------------------------------------------------------'
+  cat tabelas/tabelas-$HOJE.t2t
+  echo '8<----------------------------------------------------------'
   sleep $TOSLEEP
   ((RUNS++))
 done
