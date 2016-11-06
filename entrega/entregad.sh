@@ -6,7 +6,7 @@ function addkey()
 {
   local KEY="$1"
   local TXT="$2"
-  if ! grep -q "add key $KEY" log; then
+  if ! grep -q "add key $KEY:" log; then
     echo "add key ${KEY}: $TXT" >> log
   fi
 }
