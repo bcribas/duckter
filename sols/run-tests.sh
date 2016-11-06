@@ -60,6 +60,13 @@ function geralinha()
     NOME="$(grep "^$N:" ../../entrega/passwd|cut -d':' -f3)"
   fi
 
+  if [[ ! -e "$BIN" ]]; then
+    STATUS="Erro de Compilacao"
+    printf "| %-15s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
+            "- -" "- -" "- -" "$STATUS" >> ${TMPFILE}.errados
+    return
+  fi
+
   read MEMORIA TEMPO <<< "$(tail -n1 $TEMPLATE.tempo)"
 
   local MEMORIAMEGA=$(echo "scale=2;$MEMORIA/1024"|bc -l)
@@ -127,6 +134,15 @@ done | sort -t'|' -k2 | sort -s -n -t'|' -k5
 echo
 echo
 echo "- Errados"
+
+#procura por erros de compilacao
+for i in *.c; do
+  BINSERIA=$(basename $i .c).e
+  if [[ ! -e $BINSERIA ]]; then
+    geralinha falso $BINSERIA
+  fi
+done
+
 if [[ ! -e "${TMPFILE}.errados" ]]; then
   echo "ninguem aqui :)"
 else
