@@ -40,7 +40,7 @@ while true; do
 
   #RUNS=0 significa a primeira rodada do dia
   if [[ "$RUNS" == "0" ]]; then
-    cat tabelas/*-2016.t2t > tabelas/tabelas-consolidadas.t2t
+    cat tabelas/*-2016*.t2t > tabelas/tabelas-consolidadas.t2t
   fi
 
   echo "$NEXTROUND" > /tmp/nextround.txt
@@ -50,6 +50,7 @@ while true; do
   echo '8<----------------------------------------------------------'
   cat tabelas/tabelas-$HOJE.t2t
   echo '8<----------------------------------------------------------'
+  echo "Dormir até: $NEXTROUND"
   sleep $TOSLEEP
   ((RUNS++))
 done
