@@ -14,6 +14,7 @@ function executa()
   #verifica se ja existe execucao para esta entrada
   if [[ -e ${BASENAME}.$BIN.sol ]]; then
     if [[ "${BASENAME}.$BIN.sol" -nt "$BIN" ]]; then
+      rm -f "${BASENAME}.$BIN.certos"
       TEMPLATE="${BASENAME}.$BIN"
       echo $TEMPLATE
       return
@@ -50,6 +51,27 @@ function verificaresposta()
   return
 }
 
+function imprimelinha()
+{
+  local NOME="$1"
+  local MEMORIAMEGA="$2"
+  local TEMPO="$3"
+  local SCORE="$4"
+  local MD5="$5"
+
+  if grep -q -i "Simples" <<< "$NOME"; then
+    tput setab 7
+    tput setaf 0
+    tput bold
+  fi
+  if grep -q -i "ANTERIOR" <<< "$MD5"; then
+    tput setaf 1
+  fi
+
+  printf "| %-35s | %10s | %7s | %10s | %-34s |$(tput sgr 0)\n" "$NOME"\
+          "$MEMORIAMEGA MB" "$TEMPO" "$SCORE" "$MD5"
+}
+
 function geralinha()
 {
   local TEMPLATE=$1
@@ -62,8 +84,7 @@ function geralinha()
 
   if [[ ! -e "$BIN" ]]; then
     STATUS="Erro de Compilacao"
-    printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
-            "- -" "- -" "- -" "$STATUS" >> ${TMPFILE}.errados
+    imprimelinha "$NOME" "- -" "- -" "- -" "$STATUS" >> ${TMPFILE}.errados
     return
   fi
 
@@ -79,27 +100,22 @@ function geralinha()
       STATUS="Tempo Limite de Execução Excedido"
       TEMPO="TLE"
     fi
-    printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
-            "- -" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
+    imprimelinha "$NOME" "- -" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
     return
   fi
 
   if [[ "$STATUS" != "Aceito" ]]; then
-    printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "$NOME"\
-            "- -" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
+    imprimelinha "$NOME" "- -" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
     return
-  fi
-
-  if grep -q "simples" <<< "$BIN"; then
-    tput setab 7
-    tput setaf 0
-    tput bold
   fi
 
   local SCORE=$(echo "scale=2;($MEMORIAMEGA*10+100*$TEMPO)/110"|bc -l)
   local MD5="$(md5sum $TEMPLATE.sol|awk '{print $1}')"
-  printf "| %-35s | %10s | %7s | %10s | %-34s |$(tput sgr 0)\n" "$NOME"\
-          "$MEMORIAMEGA MB" "$TEMPO" "$SCORE" "$MD5"
+  imprimelinha "$NOME" "$MEMORIAMEGA MB" "$TEMPO" "$SCORE" "$MD5" >> ${TMPFILE}.certos
+  if [[ -e ${BASENAME}.$BIN.certos ]]; then
+    cat ${BASENAME}.$BIN.certos >> ${TMPFILE}.certos
+  fi
+  imprimelinha "$NOME" "$MEMORIAMEGA MB" "$TEMPO" "$SCORE" "Versao ANTERIOR"  > ${BASENAME}.$BIN.certos
 
 }
 
@@ -137,7 +153,9 @@ for O in e epp O0 O2 O3; do
     ARQ=$(executa $INPUT $bin)
     geralinha $ARQ $bin
   done
-done | sort -t'|' -k2 | sort -s -n -t'|' -k5
+done
+
+cat $TMPFILE.certos| sort -t'|' -k2 | sort -s -n -t'|' -k5
 echo
 echo
 echo "- Errados"
