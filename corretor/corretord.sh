@@ -4,12 +4,13 @@ RUNS=0
 
 while true; do
   HOJE=$(date +"%Y-%m-%d")
-  echo "Sincronizando Fontes"
-  rsync -aHx recebetrabalho@trinium.naquadah.com.br:entrega/submissions/*.c exec/
-
   echo "Enviar status de processando"
   echo 'processing' > /tmp/status
   scp /tmp/status recebetrabalho@trinium.naquadah.com.br:entrega/results/status.txt
+
+  echo "Sincronizando Fontes"
+  rsync -aHx recebetrabalho@trinium.naquadah.com.br:entrega/submissions/*.c exec/
+
 
   FIMSYNC=$(date +%s)
 
@@ -32,9 +33,9 @@ while true; do
 
   echo 'idle' > /tmp/status.txt
 
-  NEXTROUND="$(date --date="3 hours")"
-  TOSLEEP=3h
-  if [[ "$(date --date="3 hours" +"%Y-%m-%d")" != "$HOJE" ]]; then
+  TOSLEEP=$((1800 + RANDOM%9000))
+  NEXTROUND="$(date --date="$TOSLEEP sec")"
+  if [[ "$(date --date="$TOSLEEP sec" +"%Y-%m-%d")" != "$HOJE" ]]; then
     NEXTROUND="$(date --date="tomorrow 00:00:00")"
     TOSLEEP=$(( $(date --date="tomorrow 00:00:00" +%s) - $AGORA +10))
     RUNS=-1
