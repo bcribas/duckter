@@ -36,6 +36,13 @@ while true; do
     NEXTROUND="$(date --date="tomorrow 00:00:00")"
     TOSLEEP=$(( $(date --date="tomorrow 00:00:00" +%s) - $AGORA +10))
     RUNS=-1
+
+    #preparar para permitir download das entradas
+    HASHDODIA=$(md5sum entradas/${HOJE}.in|awk '{print $1}')
+    mkdir -p entradas-hash
+    cp entradas/${HOJE}.in entradas-hash/$HASHDODIA.in
+    sed -i "/Timelimit = /i \
+- Hash para download do arquivo: $HASHDODIA" tabelas/tabelas-$HOJE.t2t
   fi
 
   #RUNS=0 significa a primeira rodada do dia
@@ -45,7 +52,7 @@ while true; do
 
   echo "$NEXTROUND" > /tmp/nextround.txt
 
-  rsync -aHx /tmp/status.txt /tmp/nextround.txt tabelas/*.t2t recebetrabalho@trinium.naquadah.com.br:entrega/results
+  rsync -zaHx entradas-hash /tmp/status.txt /tmp/nextround.txt tabelas/*.t2t recebetrabalho@trinium.naquadah.com.br:entrega/results
 
   echo '8<----------------------------------------------------------'
   cat tabelas/tabelas-$HOJE.t2t
