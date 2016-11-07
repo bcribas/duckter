@@ -44,6 +44,14 @@ alltable
 
 Eta consulta mostra todas as tabelas disponíveis
 
+HASH-DOWNLOAD
+-------------
+
+Substitua 'HASH-DOWNLOAD' pela hash de download de um arquivo de entrada. A
+última tabela gerada do dia de uma entrada contém uma linha com o hash para
+download do arquivo. Use esta hash como CONSULTA e você saberá como baixar o
+arquivo.
+
 help
 ----
 
