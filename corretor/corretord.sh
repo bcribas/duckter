@@ -15,8 +15,10 @@ while true; do
 
   make bin
 
+  printf "make hoje"
   make hoje > tabelas/tabelas-$HOJE.t2t
   printf "\n\n" >> tabelas/tabelas-$HOJE.t2t
+  echo '.'
 
   AGORA=$(date +%s)
 
@@ -39,10 +41,14 @@ while true; do
 
     #preparar para permitir download das entradas
     HASHDODIA=$(md5sum entradas/${HOJE}.in|awk '{print $1}')
-    mkdir -p entradas-hash
-    cp entradas/${HOJE}.in entradas-hash/$HASHDODIA.in
+    HASHSMALL=$(echo $HASHDODIA|cut -b1-8)
+    echo "$HASHDODIA $HOJE-$HASHDODIA" >> entradas-hash
+    cp -a entradas/${HOJE}.in ~/utfpr/pagina/aed1/2016-2/trabalho1/entradas/$HOJE-$HASHSMALL.in
     sed -i "/Timelimit = /i \
 - Hash para download do arquivo: $HASHDODIA" tabelas/tabelas-$HOJE.t2t
+    printf "Sync Pagina"
+    bash ~/utfpr/syncwww
+    echo '.'
   fi
 
   #RUNS=0 significa a primeira rodada do dia
