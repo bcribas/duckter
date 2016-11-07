@@ -100,12 +100,12 @@ function geralinha()
       STATUS="Tempo Limite de Execução Excedido"
       TEMPO="TLE"
     fi
-    imprimelinha "$NOME" "- -" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
+    imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
     return
   fi
 
   if [[ "$STATUS" != "Aceito" ]]; then
-    imprimelinha "$NOME" "- -" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
+    imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
     return
   fi
 
