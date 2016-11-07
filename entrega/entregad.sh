@@ -174,7 +174,13 @@ if grep -q 'define CONSULTA' $ARQ; then
       cat lista-consultas.txt
       ;;
     *)
-      cancelar "Consulta '$CONSULTA' invalida"
+      if grep -q "^$CONSULTA " results/entradas-hash; then
+        BASE="$(grep "^$CONSULTA " results/entradas-hash|awk '{print $NF}')"
+        echo "Baixe executando o seguinte comando:"
+        echo "wget www.brunoribas.com.br/aed1/2016-2/trabalho1/entradas/$BASE.in.xz"
+      else
+        cancelar "Consulta '$CONSULTA' invalida"
+      fi
       ;;
   esac
   addkey "$CONSULTA" "Consulta do tipo $CONSULTA"
