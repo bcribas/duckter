@@ -42,8 +42,14 @@ while true; do
     #preparar para permitir download das entradas
     HASHDODIA=$(md5sum entradas/${HOJE}.in|awk '{print $1}')
     HASHSMALL=$(echo $HASHDODIA|cut -b1-8)
-    echo "$HASHDODIA $HOJE-$HASHDODIA" >> entradas-hash
-    cp -a entradas/${HOJE}.in ~/utfpr/pagina/aed1/2016-2/trabalho1/entradas/$HOJE-$HASHSMALL.in
+    if ! grep -q "^$HASHDODIA " entradas-hash; then
+      echo "$HASHDODIA $HOJE-$HASHSMALL" >> entradas-hash
+    fi
+    todownload=~/utfpr/pagina/aed1/2016-2/trabalho1/entradas/$HOJE-$HASHSMALL.in
+    if [[ ! -e "${todownload}.xz" ]]; then
+      cp -a "entradas/${HOJE}.in" "$todownload"
+      xz "${todownload}"
+    fi
     sed -i "/Timelimit = /i \
 - Hash para download do arquivo: $HASHDODIA" tabelas/tabelas-$HOJE.t2t
     printf "Sync Pagina"
