@@ -111,7 +111,7 @@ function geralinha()
 
   local SCORE=$(echo "scale=2;($MEMORIAMEGA*10+100*$TEMPO)/110"|bc -l)
   local MD5="$(md5sum $TEMPLATE.sol|awk '{print $1}')"
-  imprimelinha "$NOME" "$MEMORIAMEGA MB" "$TEMPO" "$SCORE" "$MD5" >> ${TMPFILE}.certos
+  imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "$SCORE" "$MD5" >> ${TMPFILE}.certos
   if [[ -e ${BASENAME}.$BIN.certos ]]; then
     cat ${BASENAME}.$BIN.certos >> ${TMPFILE}.certos
   fi
