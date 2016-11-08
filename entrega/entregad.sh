@@ -159,7 +159,14 @@ if grep -q 'define CONSULTA' $ARQ; then
       if [[ ! -e "results/tabelas-$HOJE.t2t" ]]; then
         echo "NULL"
       else
-        slowstrprint "$(< results/tabelas-$HOJE.t2t)" 0.01
+        while read l; do
+          BOLD=""
+          if grep -q "$GRUPO" <<< "$l"; then
+            BOLD="$(tput setaf 4)$(tput bold)"
+          fi
+          slowstrprint "$BOLD$l" 0.01
+          echo
+        done < results/tabelas-$HOJE.t2t
       fi
       echo
       ;;
