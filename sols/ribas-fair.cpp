@@ -261,9 +261,9 @@ void trending(ct_st *tags)
   //printf("-->aqui %d %d\n",p,tags->count);
   //printf("-->aqui\n");
   tags->lastsort=tren;
+  p=(p*tags->count)/100;
   if(!strcmp(where,"top") && p>0)
   {
-    p=(p*tags->count)/100;
     int i;
 #ifndef __DUMBTRENDING
     topk(tags->v,0,tags->count-1,p,comparaHL);
@@ -286,7 +286,6 @@ void trending(ct_st *tags)
   }
   else if(p>0)
   {
-    p=(p*tags->count)/100;
     int i;
 #ifndef __DUMBTRENDING
     topk(tags->v,0,tags->count-1,tags->count-p,comparaHL);
