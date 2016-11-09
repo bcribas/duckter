@@ -14,7 +14,6 @@ function executa()
   #verifica se ja existe execucao para esta entrada
   if [[ -e ${BASENAME}.$BIN.sol ]]; then
     if [[ "${BASENAME}.$BIN.sol" -nt "$BIN" ]]; then
-      rm -f "${BASENAME}.$BIN.certos"
       TEMPLATE="${BASENAME}.$BIN"
       echo $TEMPLATE
       return
@@ -77,14 +76,44 @@ function geralinha()
   local TEMPLATE=$1
   local BIN=$2
   local NOME=$BIN
+  AGORA="$(date +%H:%M:%S)"
   if [[ -e "../../entrega/passwd" ]]; then
     local N="$(cut -d'.' -f1 <<< "$BIN")"
     NOME="$(grep "^$N:" ../../entrega/passwd|cut -d':' -f3)"
   fi
 
+  local CACHECERTO="${BASENAME}.$BIN.cachecerto"
+  local CACHEERRADO="${BASENAME}.$BIN.cacheerrado"
+  local LASTRUN="${BASENAME}.$BIN.last"
+  if [[ -e "$LASTRUN" ]]; then
+    if [[ "$LASTRUN" -nt "$BIN" ]]; then
+      if grep -q 'correto' ${LASTRUN}.is; then
+        cat "$LASTRUN" >> $TMPFILE.certos
+      else
+        cat "$LASTRUN" >> $TMPFILE.errados
+      fi
+      [[ -e "$CACHECERTO" ]] && cat "$CACHECERTO" >> $TMPFILE.certos
+      [[ -e "$CACHEERRADO" ]] && cat "$CACHEERRADO" >> $TMPFILE.errados
+      return
+    fi
+    #senao, guarda o ultimo no cache e libera
+    OLD="$(tput setaf 1)"
+    if grep -q 'correto' ${LASTRUN}.is; then
+      echo -n "$OLD" |cat - "$LASTRUN" >> "$CACHECERTO"
+    else
+      echo -n "$OLD" |cat - "$LASTRUN" >> "$CACHEERRADO"
+    fi
+  fi
+
+  [[ -e "$CACHECERTO" ]] && cat "$CACHECERTO" >> $TMPFILE.certos
+  [[ -e "$CACHEERRADO" ]] && cat "$CACHEERRADO" >> $TMPFILE.errados
+
+  echo errado > ${LASTRUN}.is
+
   if [[ ! -e "$BIN" ]]; then
-    STATUS="Erro de Compilacao"
+    STATUS="Erro de Compilacao - $AGORA"
     imprimelinha "$NOME" "- -" "- -" "- -" "$STATUS" >> ${TMPFILE}.errados
+    imprimelinha "$NOME" "- -" "- -" "- -" "$STATUS" >  "$LASTRUN"
     return
   fi
 
@@ -97,25 +126,26 @@ function geralinha()
   if ! wc -l ${TEMPLATE}.tempo|grep -q '^1 '; then
     STATUS="$(head -n1 $TEMPLATE.tempo)"
     if echo "$TEMPO > $TL"| bc|grep -q '^1'; then
-      STATUS="Tempo Limite de Execução Excedido"
+      STATUS="Tempo Limite Excedido"
       TEMPO="TLE"
     fi
-    imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
-    return
   fi
 
   if [[ "$STATUS" != "Aceito" ]]; then
-    imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "- -" "$STATUS" >> ${TMPFILE}.errados
+    imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "- -" "$STATUS - $AGORA" >> ${TMPFILE}.errados
+    imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "- -" "$STATUS - $AGORA" > $LASTRUN
     return
   fi
 
   local SCORE=$(echo "scale=2;($MEMORIAMEGA*10+100*$TEMPO)/110"|bc -l)
   local MD5="$(md5sum $TEMPLATE.sol|awk '{print $1}')"
-  imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "$SCORE" "$MD5" >> ${TMPFILE}.certos
-  if [[ -e ${BASENAME}.$BIN.certos ]]; then
-    cat ${BASENAME}.$BIN.certos >> ${TMPFILE}.certos
+  if ! grep -q -i "simples" <<< "$BIN"; then
+    AGORA="$(stat $TEMPLATE.sol|grep Modify|awk '{print $3}'|cut -d '.' -f1)"
+    MD5="$(cut -b1-8 <<< "$MD5") - $AGORA"
   fi
-  imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "$SCORE" "Versao ANTERIOR"  > ${BASENAME}.$BIN.certos
+  imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "$SCORE" "$MD5" >> ${TMPFILE}.certos
+  imprimelinha "$NOME" "$MEMORIAMEGA" "$TEMPO" "$SCORE" "$MD5" > $LASTRUN
+  echo correto > ${LASTRUN}.is
 
 }
 
@@ -139,7 +169,7 @@ echo "- Timelimit = $TL"
 echo "- Corretos:"
 
 printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "Executavel" "Tam. MB" \
-        "Tempo" "Score" "MD5 da Saida"
+        "Tempo" "Score" " MD5 Saida/Status - Hora Execução "
 
 for O in e epp O0 O2 O3; do
   for bin in *.$O; do
