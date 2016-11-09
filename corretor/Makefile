@@ -22,6 +22,7 @@ exec/ribastree.O2: ../sols/ribastree.cpp
 	cp ../sols/ribastree.O2 exec/
 
 exec/%.e: exec/%.c
+	@rm -f $@
 	gcc -O2 -static $^ -o $@
 
 gabaritos: exec/ssimples.O0 exec/simples.O2 exec/ribastree.O2
