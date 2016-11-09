@@ -42,7 +42,7 @@ while true; do
 
     #preparar para permitir download das entradas
     HASHDODIA=$(md5sum entradas/${HOJE}.in|awk '{print $1}')
-    HASHSMALL=$(echo $HASHDODIA|cut -b1-8)
+    HASHSMALL=$RANDOM
     if ! grep -q "^$HASHDODIA " entradas-hash; then
       echo "$HASHDODIA $HOJE-$HASHSMALL" >> entradas-hash
     fi
