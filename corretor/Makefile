@@ -6,8 +6,11 @@ BINARIOSA=$(patsubst %.c,%.e,$(wildcard exec/*.c))
 
 bin: gabaritos $(BINARIOSA)
 
-hoje: $(ENTRADAS) gabaritos $(BINARIOSA)
+hoje: $(ENTRADAS) gabaritos
 	@cd exec && bash ../../sols/run-tests.sh ../entradas/`date +"%Y-%m-%d"`.in
+
+resumo:
+	@bash gera-resumo.sh
 
 exec/ssimples.O0: ../sols/ribas-fair.cpp
 	cd ../sols && make ssimples.O0
