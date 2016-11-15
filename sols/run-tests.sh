@@ -92,8 +92,8 @@ function geralinha()
       else
         cat "$LASTRUN" >> $TMPFILE.errados
       fi
-      [[ -e "$CACHECERTO" ]] && cat "$CACHECERTO" >> $TMPFILE.certos
-      [[ -e "$CACHEERRADO" ]] && cat "$CACHEERRADO" >> $TMPFILE.errados
+      [[ "$IGNORECACHE" != "1" ]] && [[ -e "$CACHECERTO" ]] && cat "$CACHECERTO" >> $TMPFILE.certos
+      [[ "$IGNORECACHE" != "1" ]] && [[ -e "$CACHEERRADO" ]] && cat "$CACHEERRADO" >> $TMPFILE.errados
       return
     fi
     #senao, guarda o ultimo no cache e libera
@@ -105,8 +105,8 @@ function geralinha()
     fi
   fi
 
-  [[ -e "$CACHECERTO" ]] && cat "$CACHECERTO" >> $TMPFILE.certos
-  [[ -e "$CACHEERRADO" ]] && cat "$CACHEERRADO" >> $TMPFILE.errados
+  [[ "$IGNORECACHE" != "1" ]] && [[ -e "$CACHECERTO" ]] && cat "$CACHECERTO" >> $TMPFILE.certos
+  [[ "$IGNORECACHE" != "1" ]] && [[ -e "$CACHEERRADO" ]] && cat "$CACHEERRADO" >> $TMPFILE.errados
 
   echo errado > ${LASTRUN}.is
 
