@@ -177,12 +177,12 @@ void trending(auto &tags)
   }
   scanf(" %ms %d",&where,&p);
   printf("Begin %d%% %s trending\n",p,where);
+  p=(p*(int)tags.size())/100;
   if(!strcmp(where,"top") && p>0)
   {
-    p=(p*(int)tags.size())/100;
-    topk(v,0,tags.size()-1,p,comparaHL);
+    //topk(v,0,tags.size()-1,p,comparaHL);
     int i;
-    sort(&v[0],&v[p],comparaHLb());
+    sort(&v[0],&v[tags.size()],comparaHLb());
     int pos=1;
     int lasthitcount=v[0].ref;
     printf("%-3d %s with %d hits\n",1,v[0].id,v[0].ref);
@@ -198,8 +198,7 @@ void trending(auto &tags)
   }
   else if(p>0)
   {
-    p=(p*tags.size())/100;
-    topk(v,0,tags.size()-1,tags.size()-p,comparaHL);
+    //topk(v,0,tags.size()-1,tags.size()-p,comparaHL);
     int i;
     sort(&v[0],&v[tags.size()],comparaHLb());
     int pos=tags.size();
