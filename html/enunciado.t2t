@@ -533,6 +533,7 @@ segundo número é o tempo em segundos. Logo o score para esse exemplo é:
 
 
 =Exemplos de Entrada=
+ - [/gif/new.gif] 16/11 - Adicionado primeiros exeomplos com newday
  - [/gif/new.gif] 16/11 - Adicionada saídas esperadas
  - Entradas de 03 a 07 atualizadas
  - Criado - 10/10
@@ -544,6 +545,9 @@ segundo número é o tempo em segundos. Logo o score para esse exemplo é:
  - [05-sample5-hugeforasample.in samples/05-sample5-hugeforasample.in] [05-sample5-hugeforasample.out samples/05-sample5-hugeforasample.out]
  - [06-sample6-crazytrending.in samples/06-sample6-crazytrending.in] [06-sample6-crazytrending.out samples/06-sample6-crazytrending.out]
  - [07-sample7-crazytrending2.in samples/07-sample7-crazytrending2.in] [07-sample7-crazytrending2.out samples/07-sample7-crazytrending2.out]
+ - [08-sample8-newday-rises.in samples/08-sample8-newday-rises.in]
+ - [09-sample9-newday-twodays.in samples/09-sample9-newday-twodays.in]
+ - [10-sample10-newday-craydays.in samples/10-sample10-newday-craydays.in]
 
 
 
