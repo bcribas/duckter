@@ -336,6 +336,11 @@ void showtagcontent(ct_st *keys,ct_st *tags)
 #else
   strcpy(n.id,tags->v[b].txt);
 #endif
+#ifndef __SUPERSIMPLES
+  if(keys->lastsort!=lex)
+#endif
+    ordena(keys->v,0,keys->count-1,comparal);
+  keys->lastsort=lex;
   b=busca(keys->v,0,keys->count-1,&n,comparal);
   printf("%s :. %s\n",keys->v[b].id,keys->v[b].txt);
   free(buf);
