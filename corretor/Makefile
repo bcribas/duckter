@@ -4,7 +4,9 @@ GERADORES=$(patsubst %.in,%.sh,$(ENTRADAS))
 
 BINARIOSA=$(patsubst %.c,%.e,$(wildcard exec/*.c))
 
-bin: gabaritos $(BINARIOSA)
+BINARIOSEPP=$(patsubst %.cpp,%.epp,$(wildcard exec/*.cpp))
+
+bin: gabaritos $(BINARIOSA) $(BINARIOSEPP)
 
 hoje: $(ENTRADAS) gabaritos
 	@cd exec && bash ../../sols/run-tests.sh ../entradas/`date +"%Y-%m-%d"`.in
@@ -27,6 +29,10 @@ exec/ribastree.O2: ../sols/ribastree.cpp
 exec/%.e: exec/%.c
 	@rm -f $@
 	gcc -O2 -static $^ -o $@
+
+exec/%.epp: exec/%.cpp
+	@rm -f $@
+	g++ -std=c++11 -O2 -static $^ -o $@
 
 gabaritos: exec/ssimples.O0 exec/simples.O2 exec/ribastree.O2
 
