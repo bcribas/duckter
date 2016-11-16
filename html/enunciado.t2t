@@ -317,6 +317,7 @@ dump tags
 
 
 ====dump keys====
+ - Atualizado 16/11 - Removido linha que sobrava no exemplo
  - Atualizado 07/10 - novo padrão de saída
  - Atualizado 04/10 - impressão em ordem lexicográfica
 
@@ -344,7 +345,6 @@ belo content="um belo dia floresce" refs=2
 maluco content="forever alone" refs=0
 orange content="is the new black" refs=1
 8<----------End   Key Dump----------
-
 ```
  - Fique atendo com as linhas delimitadoras (copie e cole ela dentro do seu
    printf)
@@ -352,7 +352,46 @@ orange content="is the new black" refs=1
 
 
 
+====new day====
+ - [/gif/new.gif] 16/11 - NEW DAY faz parte da etapa 1
+
+
+ - Comando que inicia um novo dia!
+ - Note que SEMPRE que seu programa inicia deve ser considerado um novo dia
+   sem nenhuma adição
+ - Quando recebido o comando **new day** o seu programa deverá remover todas
+   as tags que não tiveram hit no dia.
+
+exemplo:
+```
+add key lindo: um lindo dia comeca hoje
+add key etico: AED22CP eh muito etico
+tag hit #dia lindo
+tag hit #duckter etico
+new day
+tag hit #dia lindo
+new day
+```
+ - no exemplo acima, adiciona-se as chaves //lindo// e //etico//, e depois
+   tem //hit// nas tags //#dia// e //#duckter//, logo ambas as tags possuem 1
+   //hit// cada.
+ - com o comando **new day**, as tags ficam com seus hits zerados, mas
+   permanecem armazenadas
+ - //hit// para a tag //#dia//, ficando com 1 hit
+ - com o comando **new day**, a tag //#duckter// deve ser removida, pois
+   ficou sem //hit// no dia que passou e a tag //#dia// permanecem armazenada
+   pois teve um //hit//.
+
+
+
+
 ===Etapa 2===
+ - [/gif/new.gif] 16/11 - Etapa 2 foi **CANCELADA** fica valendo apenas a
+   etapa 1 que teve o new day inserido
+
+
+
+
 ====rm key CHAVE====
 
 exemplo:
@@ -380,6 +419,10 @@ rm tag #belo
 
 
 ====new day====
+ - [/gif/new.gif] 16/11 - Este comando foi movido para a etapa 1
+
+
+
  - Comando que inicia um novo dia!
  - Note que SEMPRE que seu programa inicia deve ser considerado um novo dia
    sem nenhuma adição
@@ -490,16 +533,17 @@ segundo número é o tempo em segundos. Logo o score para esse exemplo é:
 
 
 =Exemplos de Entrada=
- - [/gif/new.gif] Entradas de 03 a 07 atualizadas
+ - [/gif/new.gif] 16/11 - Adicionada saídas esperadas
+ - Entradas de 03 a 07 atualizadas
  - Criado - 10/10
 
- - [01-sample1-verysmall.in samples/01-sample1-verysmall.in]
- - [02-sample2-verysmall.in samples/02-sample2-verysmall.in]
- - [03-sample3-small.in samples/03-sample3-small.in]
- - [04-sample4-smallstress.in samples/04-sample4-smallstress.in]
- - [05-sample5-hugeforasample.in samples/05-sample5-hugeforasample.in]
- - [06-sample6-crazytrending.in samples/06-sample6-crazytrending.in]
- - [07-sample7-crazytrending2.in samples/07-sample7-crazytrending2.in]
+ - [01-sample1-verysmall.in samples/01-sample1-verysmall.in] [01-sample1-verysmall.out samples/01-sample1-verysmall.out]
+ - [02-sample2-verysmall.in samples/02-sample2-verysmall.in] [02-sample2-verysmall.out samples/02-sample2-verysmall.out]
+ - [03-sample3-small.in samples/03-sample3-small.in] [03-sample3-small.out samples/03-sample3-small.out]
+ - [04-sample4-smallstress.in samples/04-sample4-smallstress.in] [04-sample4-smallstress.out samples/04-sample4-smallstress.out]
+ - [05-sample5-hugeforasample.in samples/05-sample5-hugeforasample.in] [05-sample5-hugeforasample.out samples/05-sample5-hugeforasample.out]
+ - [06-sample6-crazytrending.in samples/06-sample6-crazytrending.in] [06-sample6-crazytrending.out samples/06-sample6-crazytrending.out]
+ - [07-sample7-crazytrending2.in samples/07-sample7-crazytrending2.in] [07-sample7-crazytrending2.out samples/07-sample7-crazytrending2.out]
 
 
 
@@ -507,19 +551,23 @@ segundo número é o tempo em segundos. Logo o score para esse exemplo é:
 
 =Prazos=
 
-- Para a ETAPA 1: //--6-- --13-- **20** de Novembro às 23h59//
-- Para a ETAPA 2: //--10-- **11** de Dezembro às 23h59//
+- Para a ETAPA 1: //--6-- --13-- --20 de Novembro-- 11 de Dezembro às 23h59//
+- --Para a ETAPA 2: //--10-- **11** de Dezembro às 23h59//--
 
 
 =Critérios da Correção=
+ - [/gif/new.gif] 16/11 - Atualizações de acordo com o combinado em sala
 
-- Cada etapa vale 100 pontos
+
+
+- --Cada etapa vale 100 pontos--
+- O trabalho vale 200 pontos
 - Os trabalhos serão executados contra todas as entradas publicadas no rank.
  - O rank definirá 2 limiares definidos como //"Simples"// e //"Super Simples"//
   - Ficando abaixo do //"Super Simples"// o trabalho valerá no máximo 50
     pontos;
   - Ficando entre o //"Simples"// e o //"Super Simples"// o trabalho valerá
-    no máximo 80 pontos;
+    no máximo --80-- 130 pontos;
  - Se o programa falhar em qualquer entrada terá um desconto de 10 pontos, e
    desconto adicional de 5 pontos por cada entrada que falhar.
     - Se falhar em apenas 1 entrada terá um desconto de 10 pontos, se falhar
@@ -539,10 +587,10 @@ segundo número é o tempo em segundos. Logo o score para esse exemplo é:
         - Otimização
         - Limpeza do código
         - Criatividade
-    - Para o aluno ou dupla que **não** fizerem a etapa 1 no prazo, mas
-      concluírem a etapa 2, receberão no máximo nota 60 para etapa 1;
-    - Defesa individual do código quando a T1 - P2 >= 40 para etapa 1, e
-    - Defesa individual do código quando a T2 - P3 >= 40 para etapa 2, e
+    - --Para o aluno ou dupla que **não** fizerem a etapa 1 no prazo, mas--
+      --concluírem a etapa 2, receberão no máximo nota 60 para etapa 1;--
+    - Defesa individual do código quando a T1/2 - P3 >= 40 para etapa 1, e
+    - --Defesa individual do código quando a T2 - P3 >= 40 para etapa 2, e--
      - Lembrando que quando o trabalho for em dupla apresenta quem tiver a
        maior diferença
 
