@@ -250,7 +250,6 @@ void rotateday(auto &keys,auto &tags)
   {
     keys[tags[toremove.top()].key].ref--;
     tags.erase(tags.find(toremove.top()));
-    printf("Removed tag: %s\n",toremove.top());
     toremove.pop();
   }
 
