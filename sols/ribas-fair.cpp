@@ -346,28 +346,48 @@ void showtagcontent(ct_st *keys,ct_st *tags)
   free(buf);
 }
 
-#if 0
-void rotateday(auto &keys,auto &tags)
+void rotateday(ct_st *keys,ct_st *tags)
 {
-  stack<char *> toremove;
-  for(auto it=tags.begin();it!=tags.end();it++)
-  {
-    if(it->second.hits==0)
-      toremove.push(it->first);
-    else
-      it->second.hits=0;
-  }
-
-  while(!toremove.empty())
-  {
-    keys[tags[toremove.top()].key].ref--;
-    tags.erase(tags.find(toremove.top()));
-    printf("Removed tag: %s\n",toremove.top());
-    toremove.pop();
-  }
-
-}
+#ifdef __SUPERSIMPLES
+  ordena(keys->v,0,keys->count-1,comparal);
 #endif
+  int i;
+  int lastpointer=-1;
+  for(i=0;i<tags->count;i++)
+  {
+    if(tags->v[i].ref!=0)
+    {
+      tags->v[i].ref=0;
+      if(lastpointer!=-1)
+      {
+        tags->v[lastpointer]=tags->v[i];
+        lastpointer++;
+      }
+    }
+    else
+    {
+#ifndef __SUPERSIMPLES
+      if(keys->lastsort!=lex)
+        ordena(keys->v,0,keys->count-1,comparal);
+      keys->lastsort=lex;
+#endif
+      tk_st n;
+
+#ifndef __SUPERSIMPLES
+      n.id=tags->v[i].txt;
+#else
+      strcpy(n.id,tags->v[i].txt);
+#endif
+      int b=busca(keys->v,0,keys->count-1,&n,comparal);
+      keys->v[b].ref--;
+
+      if(lastpointer==-1)
+        lastpointer=i;
+    }
+  }
+  if(lastpointer!=-1)
+    tags->count=lastpointer;
+}
 
 int main(void)
 {
@@ -385,10 +405,8 @@ int main(void)
       addcmd(cmd1,&keys,&tags);
     else if(strcmp(cmd1,"list")==0 && strcmp(cmd2,"trending")==0)
       trending(&tags);
-#if 0
     else if(!strcmp(cmd1,"new") && !strcmp(cmd2,"day"))
-      rotateday(keys,tags);
-#endif
+      rotateday(&keys,&tags);
     else if(!strcmp(cmd1,"show"))
       showtagcontent(&keys,&tags);
     else if(!strcmp(cmd1,"dump"))
