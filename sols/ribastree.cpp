@@ -52,7 +52,8 @@ struct key_st
 void dumpkeys(auto &keys)
 {
   printf("8<----------Begin Key Dump----------\n");
-  for(auto it=keys.begin();it!=keys.end();it++)
+  auto fim=keys.end();
+  for(auto it=keys.begin();it!=fim;it++)
   {
     printf("%s content=\"%s\" refs=%d\n",it->first,it->second.txt,it->second.ref);
   }
@@ -63,7 +64,8 @@ void dumpkeys(auto &keys)
 void dumptags(auto &tags)
 {
   printf("8<----------Begin Tag Dump----------\n");
-  for(auto it=tags.begin();it!=tags.end();it++)
+  auto fim=tags.end();
+  for(auto it=tags.begin();it!=fim;it++)
   {
     printf("%s -> %s :: hits=%d\n",it->first,it->second.key, it->second.hits);
   }
@@ -170,7 +172,8 @@ void trending(auto &tags)
   char *where; int p;
   tk_st *v=(tk_st*)malloc(sizeof(tk_st)*(tags.size()+2));
   int i=0;
-  for(auto it=tags.begin();it!=tags.end();it++,i++)
+  auto fim=tags.end();
+  for(auto it=tags.begin();it!=fim;it++,i++)
   {
     v[i].id=it->first;
     v[i].ref=it->second.hits;
@@ -238,7 +241,8 @@ void showtagcontent(auto &keys,auto &tags)
 void rotateday(auto &keys,auto &tags)
 {
   stack<char *> toremove;
-  for(auto it=tags.begin();it!=tags.end();it++)
+  auto fim=tags.end();
+  for(auto it=tags.begin();it!=fim;it++)
   {
     if(it->second.hits==0)
       toremove.push(it->first);
