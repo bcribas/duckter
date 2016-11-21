@@ -125,7 +125,7 @@ function geralinha()
 
   if ! wc -l ${TEMPLATE}.tempo|grep -q '^1 '; then
     STATUS="$(head -n1 $TEMPLATE.tempo|sed -e 's/Command //')"
-    if echo "$TEMPO > $TL"| bc|grep -q '^1'; then
+    if echo "$TEMPO >= $TL"| bc|grep -q '^1'; then
       STATUS="Tempo Limite Excedido"
       TEMPO="TLE"
     fi
