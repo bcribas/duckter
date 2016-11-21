@@ -8,3 +8,5 @@ sols/*.e
 sols/*.epp
 run-tests
 corretor/exec/
+corretor/tabelas/
+samples/*out
