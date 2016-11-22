@@ -95,7 +95,7 @@ for((k=0;k<ITERACOES;k++)); do
   taghit $((10000 + RANDOM))  > /tmp/tt
   shuf /tmp/tt
 
-  buscatags 1
+  echo list trending bottom 1
   echo new day
   (( RANDOM % 2 == 0 )) && echo new day
   (( RANDOM % 2 == 0 )) && echo new day
