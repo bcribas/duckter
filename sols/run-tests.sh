@@ -67,7 +67,7 @@ function imprimelinha()
     tput setaf 1
   fi
 
-  printf "| %-35s | %10s | %7s | %10s | %-34s |$(tput sgr 0)\n" "$NOME"\
+  printf "| %-35s | %10s | %8s | %10s | %-34s |$(tput sgr 0)\n" "$NOME"\
           "$MEMORIAMEGA MB" "$TEMPO" "$SCORE" "$MD5"
 }
 
@@ -124,8 +124,8 @@ function geralinha()
   local STATUS="$(verificaresposta $TEMPLATE.sol $SSIMPLES.sol)"
 
   if ! wc -l ${TEMPLATE}.tempo|grep -q '^1 '; then
-    STATUS="$(head -n1 $TEMPLATE.tempo|sed -e 's/Command //')"
-    if echo "$TEMPO >= $TL"| bc|grep -q '^1'; then
+    STATUS="$(grep Command $TEMPLATE.tempo|sed -e 's/Command //')"
+    if echo "$TEMPO >= $TL - 2"| bc|grep -q '^1'; then
       STATUS="Tempo Limite Excedido"
       TEMPO="TLE"
     fi
@@ -168,7 +168,7 @@ ulimit -t $((SOSEGUNDOS+30))
 echo "- Timelimit = $TL"
 echo "- Corretos:"
 
-printf "| %-35s | %10s | %7s | %10s | %-34s |\n" "Executavel" "Tam. MB" \
+printf "| %-35s | %10s | %8s | %10s | %-34s |\n" "Executavel" "Tam. MB" \
         "Tempo" "Score" " MD5 Saida/Status - Hora Execução "
 
 for O in e epp O0 O2 O3; do
