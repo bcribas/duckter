@@ -252,8 +252,11 @@ void rotateday(auto &keys,auto &tags)
 
   while(!toremove.empty())
   {
-    keys[tags[toremove.top()].key].ref--;
-    tags.erase(tags.find(toremove.top()));
+    auto t=tags.find(toremove.top());
+    keys[t->second.key].ref--;
+    free(t->second.key);
+    tags.erase(t);
+    free(toremove.top());
     toremove.pop();
   }
 
