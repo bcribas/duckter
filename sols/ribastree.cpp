@@ -225,7 +225,7 @@ void trending(auto &tags)
 
 void showtagcontent(auto &keys,auto &tags)
 {
-  char buf[50];
+  char buf[1000];
   scanf(" %s",buf);
   auto t=tags.find(buf);
   if(t==tags.end())
