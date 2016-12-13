@@ -380,6 +380,10 @@ void rotateday(ct_st *keys,ct_st *tags)
 #endif
       int b=busca(keys->v,0,keys->count-1,&n,comparal);
       keys->v[b].ref--;
+#ifndef __SUPERSIMPLES
+      free(tags->v[i].txt);
+      free(tags->v[i].id);
+#endif
 
       if(lastpointer==-1)
         lastpointer=i;
