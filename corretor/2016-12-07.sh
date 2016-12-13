@@ -1,0 +1,102 @@
+#!/bin/bash
+
+POSSIBILIDADES=(q w e r t y u i o p a s d f g h j k l z x c v b n m Q W E R T Y U I O P A S D F G H J K L Z X C V B N M 1 2 3 4 5 6 7 8 9 0)
+POSSIBILIDADESTAM=${#POSSIBILIDADES[@]}
+FRASAO=
+for((i=0;i<999;i++)); do
+  FRASAO+=${POSSIBILIDADES[$((RANDOM%62))]}
+done
+
+
+#gerar um arquivo simples
+
+#PAISES=($(awk '{print $1}' ../paises|tr '\n' ' '))
+#PAISESCT=${#PAISES[@]}
+
+declare -a CHAVES
+chavescount=0
+declare -a TAGS
+declare -A TAGSREF
+declare -A HITEDTAGS
+tagscount=0;
+
+function gerarandom()
+{
+  local P=$((RANDOM%9+1))
+  echo $P$RANDOM$RANDOM$RANDOM
+}
+
+function addchaves()
+{
+  local QTD=$1
+  local IT=$2
+  local MAXFRASES=$3
+  local i=0
+  if [[ "$MAXFRASES" == "" ]]; then
+    MAXFRASES=5
+  fi
+  for((i=0;i<$QTD;i++)); do
+    #TAMKEY=$((10+RANDOM%24))
+    local CHAVE=$(printf "$IT-$(date +%s)$i"|sha512sum | cut -b1-49|tr -d '\n')
+    #local PAIS=${PAISES[$(($RANDOM%$PAISESCT))]}
+    #echo "add key $CHAVE: $PAIS $(printf "$IT-$(date +%s)$i"|shasum)"
+    echo "add key $CHAVE: $(echo $FRASAO|cut -b1-$((1+RANDOM%MAXFRASES)))"
+    CHAVES[$chavescount]=$CHAVE
+    ((chavescount++))
+  done
+}
+
+function gentags()
+{
+  local QTD=$1
+  local PRE=$2
+  local i=0
+  PREFIXO=""
+  for((i=0;i<870;i++)); do
+    PREFIXO+="a"
+  done
+
+  for((i=0;i<$QTD;i++)); do
+    TAMTAG=999
+    local TAGNAME="$i$PREFIXO"
+    local TOKEY="${CHAVES[$(($RANDOM%${#CHAVES[@]}))]}"
+    #printf "tag hit #$TAGNAME $TOKEY\n"
+    TAGS[$tagscount]="#$TAGNAME"
+    TAGSREF["#$TAGNAME"]="$TOKEY"
+    ((tagscount++))
+  done
+}
+
+function taghit()
+{
+  local QTD=$1
+  local i=0
+  for((i=0;i<$QTD;i++)); do
+    local TAGNAME="${TAGS[i]}"
+    local TOKEY="${TAGSREF["$TAGNAME"]}"
+    printf "tag hit $TAGNAME $TOKEY\n"
+  done
+
+}
+
+ITERACOES=50000
+addchaves 1 $RANDOM 3 > /tmp/tt
+shuf /tmp/tt
+gentags 500 $RANDOM
+
+ND=0
+
+for((k=0;k<ITERACOES;k++)); do
+  printf "$k" >&2
+
+  taghit 5
+  if (( k%1000 == 0)); then
+    echo dump keys
+  fi
+  echo new day
+  echo new day
+  echo '.' >&2
+done
+
+echo dump keys
+echo dump tags
