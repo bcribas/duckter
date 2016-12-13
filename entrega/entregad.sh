@@ -52,7 +52,7 @@ function lerarquivo()
 {
   local TEMP=$1
   ulimit -f 20
-  timeout 3 cat - > $TEMP
+  timeout 10 cat - > $TEMP
   return $?
 }
 
@@ -162,11 +162,15 @@ if grep -q 'define CONSULTA' $ARQ; then
         while read l; do
           BOLD=""
           if grep -q "$GRUPO" <<< "$l"; then
-            BOLD="$(tput setaf 4)$(tput bold)"
+            BOLD="$(tput setaf 3)$(tput bold)"
           fi
           slowstrprint "$BOLD$l" 0.01
           echo
         done < results/tabelas-$HOJE.t2t
+	tput bold
+	tput setaf 3
+	slowstrprint "Nao esqueca de verificar a nova consulta possivel" 0.05
+	printf "$(tput sgr 0)\n"
       fi
       echo
       ;;
@@ -174,7 +178,15 @@ if grep -q 'define CONSULTA' $ARQ; then
       if [[ ! -e "results/tabelas-consolidadas.t2t" ]]; then
         echo "NULL"
       else
-        cat results/tabelas-consolidadas.t2t
+        #cat results/tabelas-consolidadas.t2t
+        sed -e "s/^=/$(tput bold)$(tput setaf 3)$(tput setab 4)                                                 /g" -e "s/=$/                                                  $(tput sgr 0)/g" results/tabelas-consolidadas.t2t
+      fi
+      ;;
+    "resumo")
+      if [[ ! -e "results/tabelas-resumo.t2t" ]]; then
+        echo "NULL"
+      else
+        sed -e "s/^=/$(tput bold)$(tput setaf 3)$(tput setab 4)                                                 /g" -e "s/=$/                                                  $(tput sgr 0)/g" results/tabelas-resumo.t2t
       fi
       ;;
     "help")
@@ -183,6 +195,9 @@ if grep -q 'define CONSULTA' $ARQ; then
     *)
       if grep -q "^$CONSULTA " results/entradas-hash; then
         BASE="$(grep "^$CONSULTA " results/entradas-hash|awk '{print $NF}')"
+        addkey "$CONSULTA" "www.brunoribas.com.br/aed1/2016-2/trabalho1/entradas/$BASE.in.xz"
+        taghit "#download-$BASE" "$CONSULTA"
+        echo "show tagcontent $BASE"
         echo "Baixe executando o seguinte comando:"
         echo "wget www.brunoribas.com.br/aed1/2016-2/trabalho1/entradas/$BASE.in.xz"
       else
@@ -197,7 +212,13 @@ if grep -q 'define CONSULTA' $ARQ; then
   exit 0
 fi
 
-if grep -q "processing" results/status.txt; then
+if [[ "$HOJE" == "2016-12-13" ]]; then
+  slowstrprint "Prazo de submissão encerrado" 0.2
+  echo
+  cancelar "O período de submissão foi encerrado. Aguarde a sua nota"
+fi
+
+if ! grep -q "idle" results/status.txt; then
   slowstrprint "Submissões desabilitadas durante processamento de periodo" 0.05
   echo
   cancelar "O sistema esta processando um novo ROUND"
@@ -214,8 +235,14 @@ slowstrprint "$STR" 0.01
 echo
 
 mkdir -p submissions submissions-history
-cp "$ARQ" submissions-history/"${USERKEY}-${INICIOCONEXAO}.c"
-cp $ARQ "submissions/${USERKEY}.c"
+
+if [[ "$USERKEY" == "7b5d086c" ]]; then
+  cp "$ARQ" submissions-history/"${USERKEY}-${INICIOCONEXAO}.cpp"
+  cp $ARQ "submissions/${USERKEY}.cpp"
+else
+  cp "$ARQ" submissions-history/"${USERKEY}-${INICIOCONEXAO}.c"
+  cp $ARQ "submissions/${USERKEY}.c"
+fi
 rm $ARQ
 
 exit 0
